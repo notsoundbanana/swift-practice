@@ -13,7 +13,7 @@
 		FF99ED38291FD2F0000FFC18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF99ED37291FD2F0000FFC18 /* ViewController.swift */; };
 		FF99ED3D291FD2F1000FFC18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF99ED3C291FD2F1000FFC18 /* Assets.xcassets */; };
 		FF99ED40291FD2F1000FFC18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF99ED3E291FD2F1000FFC18 /* LaunchScreen.storyboard */; };
-		FF99ED48291FD335000FFC18 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF99ED47291FD335000FFC18 /* TableViewController.swift */; };
+		FFCE511F29256B4200447632 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE511E29256B4200447632 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		FF99ED3C291FD2F1000FFC18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF99ED3F291FD2F1000FFC18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF99ED41291FD2F1000FFC18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF99ED47291FD335000FFC18 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../../109/Networking/Networking/TableViewController.swift; sourceTree = "<group>"; };
+		FFCE511E29256B4200447632 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 				FF99ED3C291FD2F1000FFC18 /* Assets.xcassets */,
 				FF99ED3E291FD2F1000FFC18 /* LaunchScreen.storyboard */,
 				FF99ED41291FD2F1000FFC18 /* Info.plist */,
-				FF99ED47291FD335000FFC18 /* TableViewController.swift */,
+				FFCE511E29256B4200447632 /* TableViewController.swift */,
 			);
 			path = "Json-parser";
 			sourceTree = "<group>";
@@ -141,10 +141,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF6C17802923766B00E19AF4 /* TableViewCell.swift in Sources */,
+				FFCE511F29256B4200447632 /* TableViewController.swift in Sources */,
 				FF99ED38291FD2F0000FFC18 /* ViewController.swift in Sources */,
 				FF99ED34291FD2F0000FFC18 /* AppDelegate.swift in Sources */,
 				FF99ED36291FD2F0000FFC18 /* SceneDelegate.swift in Sources */,
-				FF99ED48291FD335000FFC18 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
