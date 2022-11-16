@@ -13,6 +13,7 @@
 		FFCE511029254E1600447632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFCE510E29254E1600447632 /* Main.storyboard */; };
 		FFCE511229254E1700447632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFCE511129254E1700447632 /* Assets.xcassets */; };
 		FFCE511529254E1700447632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFCE511329254E1700447632 /* LaunchScreen.storyboard */; };
+		FFCE511D2925576600447632 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE511C2925576600447632 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FFCE511129254E1700447632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFCE511429254E1700447632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFCE511629254E1700447632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFCE511C2925576600447632 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				FFCE510829254E1600447632 /* AppDelegate.swift */,
 				FFCE510A29254E1600447632 /* SceneDelegate.swift */,
 				FFCE510C29254E1600447632 /* ViewController.swift */,
+				FFCE511C2925576600447632 /* Post.swift */,
 				FFCE510E29254E1600447632 /* Main.storyboard */,
 				FFCE511129254E1700447632 /* Assets.xcassets */,
 				FFCE511329254E1700447632 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				FFCE510D29254E1600447632 /* ViewController.swift in Sources */,
 				FFCE510929254E1600447632 /* AppDelegate.swift in Sources */,
 				FFCE510B29254E1600447632 /* SceneDelegate.swift in Sources */,
+				FFCE511D2925576600447632 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
