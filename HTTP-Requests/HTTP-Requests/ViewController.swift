@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     private let tableView: UITableView = .init(frame: .zero, style: .insetGrouped)
     let session = URLSession.shared
-    var posts: [Post] = []
+    var dataSource = [Post]()
 
 
     override func viewDidLoad() {
@@ -19,6 +19,10 @@ class ViewController: UIViewController {
 
         setupUI()
         setup()
+
+        Task{
+            await obtainPosts()
+        }
     }
     func setupUI() {
         view.backgroundColor = .red
@@ -48,15 +52,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.reloadData()
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell(style: .default, reuseIdentifier: "text")
-    }
-
-
     func obtainPosts() async {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
 
@@ -66,12 +61,31 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let response = try decoder.decode([Post].self, from: data)
-            print("posts: \(response)")
 
+            dataSource = response
 
+            DispatchQueue.main.async {  // Обновляем таблицу в главном потоке
+                self.tableView.reloadData()
+            }
         } catch {
             print("Error: \(String(describing: error))")
         }
+    }
+
+    // MARK: - UITableViewDataSource
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        dataSource.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "text")
+
+        let post = dataSource[indexPath.row]
+
+        cell.textLabel?.text = post.title
+        cell.detailTextLabel?.text = post.body
+        return cell
     }
 }
 
