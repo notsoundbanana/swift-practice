@@ -10,9 +10,9 @@ import UIKit
 class ViewController: UIViewController {
 
     private let tableView: UITableView = .init(frame: .zero, style: .insetGrouped)
-    let session = URLSession.shared
     var dataSource = [Post]()
 
+    let networkManager = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,20 @@ class ViewController: UIViewController {
         setup()
 
         Task{
-            await obtainPosts()
+            await networkManager.obtainPosts { (result) in
+
+                switch result {
+                case .success(let posts):
+                    self.dataSource = posts
+
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print("Error: \(String(describing: error))")
+                }
+
+            }
         }
     }
     func setupUI() {
@@ -52,25 +65,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.reloadData()
     }
 
-    func obtainPosts() async {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
-
-        let urlRequest = URLRequest(url: url)
-        do {
-            let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let response = try decoder.decode([Post].self, from: data)
-
-            dataSource = response
-
-            DispatchQueue.main.async {  // Обновляем таблицу в главном потоке
-                self.tableView.reloadData()
-            }
-        } catch {
-            print("Error: \(String(describing: error))")
-        }
-    }
+    
 
     // MARK: - UITableViewDataSource
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF831E7E2926D82200D5238B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF831E7D2926D82200D5238B /* NetworkManager.swift */; };
 		FFCE510929254E1600447632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE510829254E1600447632 /* AppDelegate.swift */; };
 		FFCE510B29254E1600447632 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE510A29254E1600447632 /* SceneDelegate.swift */; };
 		FFCE510D29254E1600447632 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE510C29254E1600447632 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF831E7D2926D82200D5238B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FFCE510529254E1600447632 /* HTTP-Requests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HTTP-Requests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCE510829254E1600447632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFCE510A29254E1600447632 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				FFCE510829254E1600447632 /* AppDelegate.swift */,
 				FFCE510A29254E1600447632 /* SceneDelegate.swift */,
 				FFCE510C29254E1600447632 /* ViewController.swift */,
+				FF831E7D2926D82200D5238B /* NetworkManager.swift */,
 				FFCE511C2925576600447632 /* Post.swift */,
 				FFCE511129254E1700447632 /* Assets.xcassets */,
 				FFCE511329254E1700447632 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				FFCE510D29254E1600447632 /* ViewController.swift in Sources */,
 				FFCE510929254E1600447632 /* AppDelegate.swift in Sources */,
+				FF831E7E2926D82200D5238B /* NetworkManager.swift in Sources */,
 				FFCE510B29254E1600447632 /* SceneDelegate.swift in Sources */,
 				FFCE511D2925576600447632 /* Post.swift in Sources */,
 			);
