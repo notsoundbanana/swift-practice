@@ -10,7 +10,6 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     private var dataTask: URLSessionDataTask?
-
     var accountInfo: Response.Account!
 
     private let profilePicture: UIImageView = {
@@ -30,22 +29,28 @@ class ProfileViewController: UIViewController {
         return label
     }()
 
+    private var discoversCollectionView: UICollectionView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
+        setupCollectionView()
         setConstraints()
     }
 
     func setup() {
-        view.addSubview(profilePicture)
-        view.addSubview(followers)
-        followers.text = "followers: \(accountInfo.user.followers)"
-        loadImage(url: (accountInfo?.user.avatar)!)
         navigationItem.title = accountInfo?.user.name
 
+        loadImage(url: (accountInfo?.user.avatar)!)
+
+        followers.text = "followers: \(accountInfo.user.followers)"
+
         view.backgroundColor = .white
+
+        view.addSubview(profilePicture)
+        view.addSubview(followers)
 
     }
 
@@ -85,4 +90,34 @@ class ProfileViewController: UIViewController {
     }
 }
 
-//extension ProfileViewController: Coll
+extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    private func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        discoversCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+
+        guard let discoversCollectionView = discoversCollectionView else {
+            return
+        }
+
+        discoversCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        discoversCollectionView.dataSource = self
+        discoversCollectionView.delegate = self
+        view.addSubview(discoversCollectionView)
+        discoversCollectionView.frame = view.bounds
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = discoversCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+
+        cell.contentView.backgroundColor = .systemRed
+        return cell
+    }
+
+
+}
