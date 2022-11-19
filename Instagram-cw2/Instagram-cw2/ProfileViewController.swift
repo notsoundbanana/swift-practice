@@ -29,15 +29,23 @@ class ProfileViewController: UIViewController {
         return label
     }()
 
-    private var discoversCollectionView: UICollectionView!
+    private var discoversCollectionView: UICollectionView = {
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.backgroundColor = .systemGray6
+        collectionView.bounces = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
-        setupCollectionView()
         setConstraints()
+        setupCollectionView()
     }
 
     func setup() {
@@ -93,30 +101,31 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     private func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        discoversCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-
-        guard let discoversCollectionView = discoversCollectionView else {
-            return
-        }
-
-        discoversCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        view.addSubview(discoversCollectionView)
+        discoversCollectionView.register(DiscoversCollectionViewCell.self, forCellWithReuseIdentifier: "DiscoversCollectionViewCell")
+        setCollectionViewConstraints()
         discoversCollectionView.dataSource = self
         discoversCollectionView.delegate = self
-        view.addSubview(discoversCollectionView)
-        discoversCollectionView.frame = view.bounds
+
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        100
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = discoversCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-
-        cell.contentView.backgroundColor = .systemRed
+        let cell = discoversCollectionView.dequeueReusableCell(withReuseIdentifier: "DiscoversCollectionViewCell", for: indexPath)
+        
         return cell
+    }
+
+    func setCollectionViewConstraints(){
+        NSLayoutConstraint.activate([
+            discoversCollectionView.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 15),
+            discoversCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            discoversCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 5),
+            discoversCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -450)
+        ])
     }
 
 

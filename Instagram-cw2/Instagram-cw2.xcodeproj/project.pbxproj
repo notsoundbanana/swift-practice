@@ -15,6 +15,7 @@
 		FF108E012928EE760071897F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF108E002928EE760071897F /* NetworkManager.swift */; };
 		FF108E072928F3BE0071897F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF108E062928F3BE0071897F /* Response.swift */; };
 		FF108E0A292907200071897F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF108E09292907200071897F /* ProfileViewController.swift */; };
+		FF588B892929849E00EEFF21 /* DiscoversCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF588B882929849E00EEFF21 /* DiscoversCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FF108E002928EE760071897F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FF108E062928F3BE0071897F /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		FF108E09292907200071897F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FF588B882929849E00EEFF21 /* DiscoversCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoversCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				FF108DEC2928EDBB0071897F /* AppDelegate.swift */,
 				FF108DEE2928EDBB0071897F /* SceneDelegate.swift */,
 				FF108DF02928EDBB0071897F /* ViewController.swift */,
+				FF588B882929849E00EEFF21 /* DiscoversCollectionViewCell.swift */,
 				FF108DF52928EDBC0071897F /* Assets.xcassets */,
 				FF108DFA2928EDBC0071897F /* Info.plist */,
 				FF108DF72928EDBC0071897F /* LaunchScreen.storyboard */,
@@ -157,6 +160,7 @@
 				FF108DED2928EDBB0071897F /* AppDelegate.swift in Sources */,
 				FF108DEF2928EDBB0071897F /* SceneDelegate.swift in Sources */,
 				FF108E0A292907200071897F /* ProfileViewController.swift in Sources */,
+				FF588B892929849E00EEFF21 /* DiscoversCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
