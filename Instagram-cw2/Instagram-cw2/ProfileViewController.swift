@@ -21,7 +21,31 @@ class ProfileViewController: UIViewController {
         return imageView
     }()
 
-    private let followers: UILabel = {
+    private let statusLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 15)
+        return label
+    }()
+
+    private let postsLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        return label
+    }()
+
+    private let followersLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        return label
+    }()
+
+    private let followingLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,16 +73,22 @@ class ProfileViewController: UIViewController {
     }
 
     func setup() {
+        view.backgroundColor = .white
         navigationItem.title = accountInfo?.user.name
+        navigationController!.navigationBar.tintColor = .black;
 
         loadImage(url: (accountInfo?.user.avatar)!)
 
-        followers.text = "followers: \(accountInfo.user.followers)"
-
-        view.backgroundColor = .white
+        statusLabel.text = accountInfo.user.status
+        postsLabel.text = "Posts: \(accountInfo.user.posts)"
+        followersLabel.text = "Followers: \(accountInfo.user.followers)"
+        followingLabel.text = "Following: \(accountInfo.user.following)"
 
         view.addSubview(profilePicture)
-        view.addSubview(followers)
+        view.addSubview(statusLabel)
+        view.addSubview(postsLabel)
+        view.addSubview(followersLabel)
+        view.addSubview(followingLabel)
 
     }
 
@@ -87,12 +117,23 @@ class ProfileViewController: UIViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
             profilePicture.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
-            profilePicture.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),
+            profilePicture.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             profilePicture.heightAnchor.constraint(equalToConstant: 120),
             profilePicture.widthAnchor.constraint(equalToConstant: 120),
 
-            followers.topAnchor.constraint(equalTo: profilePicture.topAnchor),
-            followers.leftAnchor.constraint(equalTo: profilePicture.rightAnchor, constant: 20)
+            statusLabel.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 5),
+            statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            statusLabel.heightAnchor.constraint(equalToConstant: 50),
+
+            postsLabel.topAnchor.constraint(equalTo: profilePicture.topAnchor, constant: 20),
+            postsLabel.leftAnchor.constraint(equalTo: profilePicture.rightAnchor, constant: 20),
+
+            followersLabel.topAnchor.constraint(equalTo: postsLabel.bottomAnchor, constant: 5),
+            followersLabel.leftAnchor.constraint(equalTo: profilePicture.rightAnchor, constant: 20),
+
+            followingLabel.topAnchor.constraint(equalTo: followersLabel.bottomAnchor, constant: 5),
+            followingLabel.leftAnchor.constraint(equalTo: profilePicture.rightAnchor, constant: 20)
 
         ])
     }
@@ -121,7 +162,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
 
     func setCollectionViewConstraints(){
         NSLayoutConstraint.activate([
-            discoversCollectionView.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 15),
+            discoversCollectionView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 15),
             discoversCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             discoversCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 5),
             discoversCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -450)

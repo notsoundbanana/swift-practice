@@ -59,7 +59,6 @@ class ViewController: UIViewController {
         }
     }
     func setupUI() {
-        view.backgroundColor = .white
 
         navigationItem.title = "Users"
 
