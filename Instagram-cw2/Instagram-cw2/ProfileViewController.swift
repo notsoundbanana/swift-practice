@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     private let statusLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 15)
         return label
@@ -64,6 +65,19 @@ class ProfileViewController: UIViewController {
         return button
     }()
 
+    private let addAccountButton: UIButton = {
+        let button = UIButton.init(type: .system)
+        button.setImage(UIImage(systemName: "person.badge.plus"), for: .normal)
+        button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.backgroundColor = .systemGray6
+        button.tintColor = .black
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+
     private var discoversCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = .horizontal
@@ -96,7 +110,6 @@ class ProfileViewController: UIViewController {
         followingLabel.text = "Following: \(accountInfo.user.following)"
 
         view.addSubview(profilePicture)
-        view.addSubview(editProfileButton)
         view.addSubview(statusLabel)
         view.addSubview(postsLabel)
         view.addSubview(followersLabel)
@@ -127,6 +140,15 @@ class ProfileViewController: UIViewController {
     }
 
     func setConstraints() {
+        let buttonStackView = UIStackView(
+            arrangedSubviews: [editProfileButton, addAccountButton]
+        )
+
+        buttonStackView.axis = .horizontal
+        buttonStackView.spacing = 10
+        buttonStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(buttonStackView)
+
         NSLayoutConstraint.activate([
             profilePicture.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             profilePicture.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
@@ -137,10 +159,10 @@ class ProfileViewController: UIViewController {
             statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
 
-            editProfileButton.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 5),
-            editProfileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
-            editProfileButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
-            editProfileButton.heightAnchor.constraint(equalToConstant: 40),
+            buttonStackView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 5),
+            buttonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            buttonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            buttonStackView.heightAnchor.constraint(equalToConstant: 40),
 
             postsLabel.topAnchor.constraint(equalTo: profilePicture.topAnchor, constant: 20),
             postsLabel.leftAnchor.constraint(equalTo: profilePicture.rightAnchor, constant: 20),
