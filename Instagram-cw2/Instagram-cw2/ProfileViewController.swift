@@ -77,6 +77,29 @@ class ProfileViewController: UIViewController {
         return button
     }()
 
+    var buttonStackView = UIStackView()
+
+    private let discoverPeopleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.text = "Discover people"
+        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let seeAllButton: UIButton = {
+        let button = UIButton.init(type: .system)
+        button.setTitle("See all", for: .normal)
+        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.tintColor = .systemBlue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    var discoverStackView = UIStackView()
 
     private var discoversCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -140,29 +163,41 @@ class ProfileViewController: UIViewController {
     }
 
     func setConstraints() {
-        let buttonStackView = UIStackView(
+        buttonStackView = UIStackView(
             arrangedSubviews: [editProfileButton, addAccountButton]
         )
-
         buttonStackView.axis = .horizontal
         buttonStackView.spacing = 10
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonStackView)
 
+        discoverStackView = UIStackView(
+            arrangedSubviews: [discoverPeopleLabel, seeAllButton]
+        )
+        discoverStackView.axis = .horizontal
+        discoverStackView.spacing = 10
+        discoverStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(discoverStackView)
+
         NSLayoutConstraint.activate([
             profilePicture.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
-            profilePicture.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            profilePicture.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
             profilePicture.heightAnchor.constraint(equalToConstant: 120),
             profilePicture.widthAnchor.constraint(equalToConstant: 120),
 
             statusLabel.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 10),
-            statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
 
-            buttonStackView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 5),
-            buttonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
-            buttonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            buttonStackView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 15),
+            buttonStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            buttonStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
             buttonStackView.heightAnchor.constraint(equalToConstant: 40),
+
+            discoverStackView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 15),
+            discoverStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            discoverStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+            discoverStackView.heightAnchor.constraint(equalToConstant: 40),
 
             postsLabel.topAnchor.constraint(equalTo: profilePicture.topAnchor, constant: 20),
             postsLabel.leftAnchor.constraint(equalTo: profilePicture.rightAnchor, constant: 20),
@@ -200,10 +235,10 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
 
     func setCollectionViewConstraints(){
         NSLayoutConstraint.activate([
-            discoversCollectionView.topAnchor.constraint(equalTo: editProfileButton.bottomAnchor, constant: 15),
+            discoversCollectionView.topAnchor.constraint(equalTo: discoverStackView.bottomAnchor),
             discoversCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             discoversCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 5),
-            discoversCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -450)
+            discoversCollectionView.bottomAnchor.constraint(equalTo: discoversCollectionView.topAnchor, constant: 200)
         ])
     }
 
