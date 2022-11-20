@@ -37,6 +37,7 @@ class DiscoversCollectionViewCell: UICollectionViewCell {
     private let followButton: UIButton = {
         let button = UIButton()
 //        button. = "Follow"
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .blue
         return button
     }()

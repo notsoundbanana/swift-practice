@@ -53,6 +53,17 @@ class ProfileViewController: UIViewController {
         return label
     }()
 
+    private let editProfileButton: UIButton = {
+        let button = UIButton.init(type: .system)
+        button.setTitle("Edit Profile", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.backgroundColor = .systemGray6
+        button.tintColor = .black
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     private var discoversCollectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = .horizontal
@@ -85,6 +96,7 @@ class ProfileViewController: UIViewController {
         followingLabel.text = "Following: \(accountInfo.user.following)"
 
         view.addSubview(profilePicture)
+        view.addSubview(editProfileButton)
         view.addSubview(statusLabel)
         view.addSubview(postsLabel)
         view.addSubview(followersLabel)
@@ -121,10 +133,14 @@ class ProfileViewController: UIViewController {
             profilePicture.heightAnchor.constraint(equalToConstant: 120),
             profilePicture.widthAnchor.constraint(equalToConstant: 120),
 
-            statusLabel.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 5),
+            statusLabel.topAnchor.constraint(equalTo: profilePicture.bottomAnchor, constant: 10),
             statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            statusLabel.heightAnchor.constraint(equalToConstant: 50),
+
+            editProfileButton.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 5),
+            editProfileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            editProfileButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            editProfileButton.heightAnchor.constraint(equalToConstant: 40),
 
             postsLabel.topAnchor.constraint(equalTo: profilePicture.topAnchor, constant: 20),
             postsLabel.leftAnchor.constraint(equalTo: profilePicture.rightAnchor, constant: 20),
@@ -162,7 +178,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
 
     func setCollectionViewConstraints(){
         NSLayoutConstraint.activate([
-            discoversCollectionView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 15),
+            discoversCollectionView.topAnchor.constraint(equalTo: editProfileButton.bottomAnchor, constant: 15),
             discoversCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             discoversCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 5),
             discoversCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -450)

@@ -38,7 +38,7 @@ class NetworkManager {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let response = try decoder.decode(Response.self, from: data)
-            print(response)
+//            print(response)
             result = .success(response: response)
         } catch {
             result = .failure(error: error)
