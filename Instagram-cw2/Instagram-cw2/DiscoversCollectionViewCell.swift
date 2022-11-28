@@ -45,58 +45,59 @@ class DiscoversCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-//        setupView()
+        setupView()
+        setConstraints()
         contentView.backgroundColor = .systemRed
     }
 
     required init?(coder: NSCoder) {
             super.init(coder: coder)
 
-//            setupView()
-//            setConstraints()
+            setupView()
+            setConstraints()
     }
-//
-//
-//    private func setupView() {
-//        addSubview(profilePictureImageView)
-////        addSubview(usernameLabel)
-////        addSubview(infoLabel)
-////        addSubview(followButton)
-//    }
 
-//    func configureCell(imageName: String){
-//        loadImage(url: URL(string: imageName)!)
-//        profilePictureImageView.contentMode = .scaleToFill
-//    }
-//
-//    private func loadImage(url: URL) {
-//        profilePictureImageView.image = nil
-//        dataTask?.cancel()
-//        let urlRequest = URLRequest(
-//           url: url,
-//           cachePolicy: .reloadIgnoringLocalAndRemoteCacheData
-//        )
-//        dataTask = URLSession.shared
-//           .dataTask(with: urlRequest) { [profilePictureImageView] data, _, _ in
-//               guard let data else {
-//                   return
-//               }
-//
-//               let image = UIImage(data: data)
-//               DispatchQueue.main.async { [profilePictureImageView] in
-//                   guard let image else { return }
-//                   profilePictureImageView.image = image
-//               }
-//           }
-//        dataTask?.resume()
-//    }
-//
-//    func setConstraints(){
-//        NSLayoutConstraint.activate([
-//            profilePictureImageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-//            profilePictureImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-//            profilePictureImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-//            profilePictureImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)
-//        ])
-//    }
+
+    private func setupView() {
+        addSubview(profilePictureImageView)
+//        addSubview(usernameLabel)
+//        addSubview(infoLabel)
+//        addSubview(followButton)
+    }
+
+    func configureCell(imageName: String){
+        loadImage(url: URL(string: imageName)!)
+        profilePictureImageView.contentMode = .scaleAspectFit
+    }
+
+    private func loadImage(url: URL) {
+        profilePictureImageView.image = nil
+        dataTask?.cancel()
+        let urlRequest = URLRequest(
+           url: url,
+           cachePolicy: .reloadIgnoringLocalAndRemoteCacheData
+        )
+        dataTask = URLSession.shared
+           .dataTask(with: urlRequest) { [profilePictureImageView] data, _, _ in
+               guard let data else {
+                   return
+               }
+
+               let image = UIImage(data: data)
+               DispatchQueue.main.async { [profilePictureImageView] in
+                   guard let image else { return }
+                   profilePictureImageView.image = image
+               }
+           }
+        dataTask?.resume()
+    }
+
+    func setConstraints(){
+        NSLayoutConstraint.activate([
+            profilePictureImageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            profilePictureImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+            profilePictureImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            profilePictureImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)
+        ])
+    }
 }

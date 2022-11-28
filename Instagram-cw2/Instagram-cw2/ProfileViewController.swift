@@ -121,7 +121,7 @@ class ProfileViewController: UIViewController {
     }
 
     func setup() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         navigationItem.title = accountInfo?.user.name
         navigationController!.navigationBar.tintColor = .black;
 
@@ -229,6 +229,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = discoversCollectionView.dequeueReusableCell(withReuseIdentifier: "DiscoversCollectionViewCell", for: indexPath)
+//        cell.configureCell(imageName: self.dataTask[indexPath.row])
         
         return cell
     }
