@@ -34,6 +34,12 @@ class ViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let noteVC = NoteViewController()
+        show(noteVC, sender: self)
+    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
