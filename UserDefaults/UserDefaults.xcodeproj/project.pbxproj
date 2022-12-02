@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF06EAE62935F93B002B3996 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF06EAE52935F93B002B3996 /* NoteController.swift */; };
 		FF06EAE82935F970002B3996 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF06EAE72935F970002B3996 /* Note.swift */; };
 		FF06EAEA2935F9C4002B3996 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF06EAE92935F9C4002B3996 /* NoteViewController.swift */; };
 		FF9966D329355FCA00BD79C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9966D229355FCA00BD79C6 /* AppDelegate.swift */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FF06EAE52935F93B002B3996 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 		FF06EAE72935F970002B3996 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		FF06EAE92935F9C4002B3996 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		FF9966CF29355FCA00BD79C6 /* UserDefaults.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserDefaults.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +64,6 @@
 				FF9966DB29355FCB00BD79C6 /* Assets.xcassets */,
 				FF9966DD29355FCB00BD79C6 /* LaunchScreen.storyboard */,
 				FF9966E029355FCB00BD79C6 /* Info.plist */,
-				FF06EAE52935F93B002B3996 /* NoteController.swift */,
 				FF06EAE72935F970002B3996 /* Note.swift */,
 				FF06EAE92935F9C4002B3996 /* NoteViewController.swift */,
 			);
@@ -145,7 +142,6 @@
 			files = (
 				FF06EAE82935F970002B3996 /* Note.swift in Sources */,
 				FF9966D729355FCA00BD79C6 /* ViewController.swift in Sources */,
-				FF06EAE62935F93B002B3996 /* NoteController.swift in Sources */,
 				FF9966D329355FCA00BD79C6 /* AppDelegate.swift in Sources */,
 				FF06EAEA2935F9C4002B3996 /* NoteViewController.swift in Sources */,
 				FF9966D529355FCA00BD79C6 /* SceneDelegate.swift in Sources */,

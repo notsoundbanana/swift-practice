@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         setup()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         loadData()
         tableView.reloadData()
     }
@@ -67,6 +67,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
             guard let notes = try? decoder.decode([Note].self, from: res) else { return }
             allNotes = notes
+            allNotes.sort{$0.creationDate > $1.creationDate}
         }
     }
 
