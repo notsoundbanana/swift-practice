@@ -9,6 +9,8 @@ import UIKit
 
 class NoteViewController: UIViewController {
 
+    private var note: Note?
+
     private let titleTextField: UITextField = {
         let textField = UITextField.init(frame: .zero)
         textField.placeholder = "Title"
@@ -26,8 +28,52 @@ class NoteViewController: UIViewController {
         button.backgroundColor = .systemGray5
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
+
+        button.addTarget(Any?.self, action: #selector(saveButtonDidTap), for: .touchUpInside)
+
         return button
     }()
+
+    @objc func saveButtonDidTap(_ sender: UIButton!) {
+        print("Button tapped!")
+//        let note = Note(title: titleTextField.text!, content: noteTextView.text!, creationDate: "\(NSDate.now)")
+//        print(note)
+        guard let title = titleTextField.text, let content = noteTextView.text else { return }
+        let creationDate = "\(NSDate.now)"
+
+        let encoder = JSONEncoder()
+        note = Note(title: title, content: content, creationDate: creationDate)
+//        let jsonData = try! encoder.encode(note)
+//        UserDefaults.standard.set(jsonData, forKey: "note")
+
+//        UserDefaults.standard.set("", forKey: "note")
+
+//        print(UserDefaults.standard.object(forKey: "note") as! Note)
+        if let res = UserDefaults.standard.object(forKey: "note") as? Data {
+            let decoder = JSONDecoder()
+            print(123)
+            guard var notes = try? decoder.decode([Note].self, from: res) else { return }
+            notes.append(note!)
+
+            let jsonData = try! encoder.encode(notes)
+            UserDefaults.standard.set(jsonData, forKey: "note")
+
+
+            print("MODel: ", notes)
+        }
+        else {
+            print([note])
+
+            let jsonData = try! encoder.encode([note])
+            print(2)
+
+            UserDefaults.standard.set(jsonData, forKey: "note")
+            print(3)
+
+        }
+
+        dismiss(animated: true)
+    }
 
     private var titleStackView = UIStackView()
 
@@ -41,13 +87,17 @@ class NoteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
-
         setupUI()
         setConstraints()
+
+        if let note {
+            titleTextField.text = note.title
+            noteTextView.text = note.content
+        }
     }
 
     func setupUI() {
+        navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .systemGray6
         view.addSubview(noteTextView)
     }
