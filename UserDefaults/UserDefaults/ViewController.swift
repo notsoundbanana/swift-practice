@@ -57,6 +57,24 @@ class ViewController: UIViewController {
         noteVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(noteVC, animated: true)
     }
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            allNotes.remove(at: indexPath.row)
+
+            let encoder = JSONEncoder()
+            let jsonData = try! encoder.encode(allNotes)
+            UserDefaults.standard.set(jsonData, forKey: "note")
+
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
