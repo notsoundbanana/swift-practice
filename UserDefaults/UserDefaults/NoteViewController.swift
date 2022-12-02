@@ -9,7 +9,9 @@ import UIKit
 
 class NoteViewController: UIViewController {
 
-    private var note: Note?
+    private let mockData = MockData()
+    public var note: Note?
+    public var index: Int?
 
     private let titleTextField: UITextField = {
         let textField = UITextField.init(frame: .zero)
@@ -35,44 +37,20 @@ class NoteViewController: UIViewController {
     }()
 
     @objc func saveButtonDidTap(_ sender: UIButton!) {
-        print("Button tapped!")
-//        let note = Note(title: titleTextField.text!, content: noteTextView.text!, creationDate: "\(NSDate.now)")
-//        print(note)
         guard let title = titleTextField.text, let content = noteTextView.text else { return }
-        let creationDate = "\(NSDate.now)"
 
-        let encoder = JSONEncoder()
-        note = Note(title: title, content: content, creationDate: creationDate)
-//        let jsonData = try! encoder.encode(note)
-//        UserDefaults.standard.set(jsonData, forKey: "note")
-
-//        UserDefaults.standard.set("", forKey: "note")
-
-//        print(UserDefaults.standard.object(forKey: "note") as! Note)
-        if let res = UserDefaults.standard.object(forKey: "note") as? Data {
-            let decoder = JSONDecoder()
-            print(123)
-            guard var notes = try? decoder.decode([Note].self, from: res) else { return }
-            notes.append(note!)
-
-            let jsonData = try! encoder.encode(notes)
-            UserDefaults.standard.set(jsonData, forKey: "note")
-
-
-            print("MODel: ", notes)
+        if note == nil {
+            let creationDate = "\(NSDate.now)"
+            note = Note(title: title, content: content, creationDate: creationDate)
+            mockData.add(note: note!)
         }
         else {
-            print([note])
-
-            let jsonData = try! encoder.encode([note])
-            print(2)
-
-            UserDefaults.standard.set(jsonData, forKey: "note")
-            print(3)
-
+            note!.title = title
+            note!.content = content
+            mockData.edit(note: note!, index: index!)
         }
 
-        dismiss(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 
     private var titleStackView = UIStackView()
@@ -99,6 +77,7 @@ class NoteViewController: UIViewController {
     func setupUI() {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .systemGray6
+
         view.addSubview(noteTextView)
     }
 

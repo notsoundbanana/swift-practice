@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private let mockData = MockData()
+
     private let tableView: UITableView = .init(frame: .zero, style: .insetGrouped)
 
     private var allNotes = [Note]()
@@ -48,6 +50,8 @@ class ViewController: UIViewController {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let noteVC = NoteViewController()
+        noteVC.note = allNotes[indexPath.row]
+        noteVC.index = indexPath.row
         noteVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(noteVC, animated: true)
     }
@@ -67,9 +71,7 @@ class ViewController: UIViewController {
             tableView.beginUpdates()
             allNotes.remove(at: indexPath.row)
 
-            let encoder = JSONEncoder()
-            let jsonData = try! encoder.encode(allNotes)
-            UserDefaults.standard.set(jsonData, forKey: "note")
+            mockData.set(allNotes: allNotes)
 
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
@@ -80,7 +82,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     func loadData() {
-        if let res = UserDefaults.standard.object(forKey: "note") as? Data {
+        if let res = UserDefaults.standard.object(forKey: UserDefaultKeys.notes) as? Data {
             let decoder = JSONDecoder()
 
             guard let notes = try? decoder.decode([Note].self, from: res) else { return }
