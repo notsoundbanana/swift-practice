@@ -27,7 +27,6 @@ class NoteViewController: UIViewController {
         guard let title = titleTextField.text, let content = noteTextView.text else { return }
 
         if note == nil {
-            print("note nil")
             let creationDate = "\(NSDate.now)"
             note = Note(title: title, content: content, creationDate: creationDate)
             mockData.add(note: note!)
