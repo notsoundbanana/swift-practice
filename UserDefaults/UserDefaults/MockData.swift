@@ -20,6 +20,8 @@ class MockData {
             guard var notes = try? decoder.decode([Note].self, from: objectByKey) else { return }
 
             notes.append(note)
+            notes.sort{$0.creationDate > $1.creationDate}
+
 
             let jsonData = try! encoder.encode(notes)
             userDefaults.set(jsonData, forKey: UserDefaultKeys.notes)
@@ -32,10 +34,8 @@ class MockData {
     }
 
     func edit(note: Note, index: Int) {
-        print(index)
         if let objectByKey = userDefaults.object(forKey: UserDefaultKeys.notes) as? Data {
             guard var notes = try? decoder.decode([Note].self, from: objectByKey) else { return }
-            print(note)
 
             notes[index] = note
 

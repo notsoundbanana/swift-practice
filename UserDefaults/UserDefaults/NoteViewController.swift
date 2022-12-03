@@ -21,25 +21,13 @@ class NoteViewController: UIViewController {
         return textField
     }()
 
-    private let saveButton: UIButton = {
-        let button = UIButton.init(type: .system)
-        button.setTitle("Save", for: .normal)
-        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.tintColor = .systemBlue
-        button.backgroundColor = .systemGray5
-        button.layer.cornerRadius = 5
-        button.translatesAutoresizingMaskIntoConstraints = false
-
-        button.addTarget(Any?.self, action: #selector(saveButtonDidTap), for: .touchUpInside)
-
-        return button
-    }()
+    private let saveButton = UIBarButtonItem.init(title: "Save", style: .plain, target: Any?.self, action: #selector(saveButtonDidTap))
 
     @objc func saveButtonDidTap(_ sender: UIButton!) {
         guard let title = titleTextField.text, let content = noteTextView.text else { return }
 
         if note == nil {
+            print("note nil")
             let creationDate = "\(NSDate.now)"
             note = Note(title: title, content: content, creationDate: creationDate)
             mockData.add(note: note!)
@@ -76,6 +64,7 @@ class NoteViewController: UIViewController {
 
     func setupUI() {
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItem = saveButton
         view.backgroundColor = .systemGray6
 
         view.addSubview(noteTextView)
@@ -83,7 +72,7 @@ class NoteViewController: UIViewController {
 
     func setConstraints() {
         titleStackView = UIStackView(
-            arrangedSubviews: [titleTextField, saveButton]
+            arrangedSubviews: [titleTextField]
         )
         titleStackView.axis = .horizontal
         titleStackView.spacing = 10
