@@ -53,11 +53,22 @@ class ViewController: UIViewController {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let noteVC = NoteViewController()
-        noteVC.note = allNotes[indexPath.row]
-        noteVC.index = indexPath.row
-        noteVC.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(noteVC, animated: true)
+        let type = allNotes[indexPath.row].type
+        if (type == noteType.noteWithText.rawValue) {
+            let noteVC = NoteViewController()
+            noteVC.note = allNotes[indexPath.row]
+            noteVC.index = indexPath.row
+            noteVC.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(noteVC, animated: true)
+        }
+        if (type == noteType.noteWithPhoto.rawValue) {
+            let noteVC = NoteWithPhotoViewController()
+            noteVC.note = allNotes[indexPath.row]
+            noteVC.index = indexPath.row
+            noteVC.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(noteVC, animated: true)
+        }
+
     }
 
     @objc func rightNavigationBarButtonTapped(sender: UIBarButtonItem) {

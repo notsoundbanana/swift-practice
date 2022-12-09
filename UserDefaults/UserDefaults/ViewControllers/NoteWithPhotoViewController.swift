@@ -31,16 +31,32 @@ class NoteWithPhotoViewController: UIViewController {
 
             let alertController = UIAlertController(title: "New Note", message: "Name the image", preferredStyle: .alert)
 
-            alertController.addTextField { (textField) in
+            alertController.addTextField { [self] (textField) in
                 textField.placeholder = "Name"
+                if let note {
+                    textField.text = note.content
+                }
             }
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            let saveAction = UIAlertAction(title: "Save", style: .default) { [self] _ in
 
                 let inputName = alertController.textFields![0].text
 
-                print(inputName)
+                guard let title = titleTextField.text, let content = inputName else { return }
+
+                if note == nil {
+                    let creationDate = "\(NSDate.now)"
+                    note = Note(type: noteType.noteWithPhoto.rawValue, title: title, content: content, creationDate: creationDate)
+                    mockData.add(note: note!)
+                }
+                else {
+                    note!.title = title
+                    note!.content = content
+                    mockData.edit(note: note!, index: index!)
+                }
+
+                _ = navigationController?.popViewController(animated: true)
 
             }
 
@@ -52,6 +68,7 @@ class NoteWithPhotoViewController: UIViewController {
             let alert = UIAlertController(title: "Alert", message: "Add photo", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
             self.present(alert, animated: true, completion: nil)
+            return
         }
     }
 
