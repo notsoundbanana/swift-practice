@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FF06EAE82935F970002B3996 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF06EAE72935F970002B3996 /* Note.swift */; };
 		FF06EAEA2935F9C4002B3996 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF06EAE92935F9C4002B3996 /* NoteViewController.swift */; };
+		FF150D0D2942837300BA8BBE /* NoteWithPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF150D0C2942837300BA8BBE /* NoteWithPhotoViewController.swift */; };
 		FF9966D329355FCA00BD79C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9966D229355FCA00BD79C6 /* AppDelegate.swift */; };
 		FF9966D529355FCA00BD79C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9966D429355FCA00BD79C6 /* SceneDelegate.swift */; };
 		FF9966D729355FCA00BD79C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9966D629355FCA00BD79C6 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		FF06EAE72935F970002B3996 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		FF06EAE92935F9C4002B3996 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		FF150D0C2942837300BA8BBE /* NoteWithPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteWithPhotoViewController.swift; sourceTree = "<group>"; };
 		FF9966CF29355FCA00BD79C6 /* UserDefaults.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserDefaults.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9966D229355FCA00BD79C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9966D429355FCA00BD79C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				FF9966D629355FCA00BD79C6 /* ViewController.swift */,
 				FF06EAE92935F9C4002B3996 /* NoteViewController.swift */,
+				FF150D0C2942837300BA8BBE /* NoteWithPhotoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			files = (
 				FF06EAE82935F970002B3996 /* Note.swift in Sources */,
 				FFA610E7293A9298003AF0E1 /* MockData.swift in Sources */,
+				FF150D0D2942837300BA8BBE /* NoteWithPhotoViewController.swift in Sources */,
 				FF9966D729355FCA00BD79C6 /* ViewController.swift in Sources */,
 				FF9966D329355FCA00BD79C6 /* AppDelegate.swift in Sources */,
 				FF06EAEA2935F9C4002B3996 /* NoteViewController.swift in Sources */,

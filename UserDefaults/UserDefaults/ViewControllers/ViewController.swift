@@ -35,6 +35,10 @@ class ViewController: UIViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(rightNavigationBarButtonTapped(sender:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "camera"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(leftNavigationBarButtonTapped(sender:)))
 
         view.addSubview(tableView)
 
@@ -60,6 +64,12 @@ class ViewController: UIViewController {
         let noteVC = NoteViewController()
         noteVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(noteVC, animated: true)
+    }
+
+    @objc func leftNavigationBarButtonTapped(sender: UIBarButtonItem) {
+        let noteWithPhotoVC = NoteWithPhotoViewController()
+        noteWithPhotoVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(noteWithPhotoVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
