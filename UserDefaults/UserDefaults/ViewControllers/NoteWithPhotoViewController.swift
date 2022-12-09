@@ -16,16 +16,55 @@ class NoteWithPhotoViewController: UIViewController {
     public var note: Note?
     public var index: Int?
 
+    private let saveButton = UIBarButtonItem.init(title: "Save", style: .plain, target: Any?.self, action: #selector(saveButtonDidTap))
+    private let addPhotoButton = UIBarButtonItem.init(title: "Add photo", style: .plain, target: Any?.self, action: #selector(addPhotoButtonDidTap))
+
     private let titleTextField: UITextField = {
         let textField = UITextField.init(frame: .zero)
         textField.placeholder = "Title"
-        textField.font = UIFont.systemFont(ofSize: 18)
+        textField.font = UIFont.systemFont(ofSize: 25)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
 
-    private let saveButton = UIBarButtonItem.init(title: "Save", style: .plain, target: Any?.self, action: #selector(saveButtonDidTap))
-    private let addPhotoButton = UIBarButtonItem.init(title: "Add photo", style: .plain, target: Any?.self, action: #selector(addPhotoButtonDidTap))
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        setConstraints()
+
+        if let note {
+            titleTextField.text = note.title
+            try? imageView.image = noteService.getPhoto(fileName: (note.fileName)!)
+        }
+    }
+
+    func setupUI() {
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItems = [saveButton, addPhotoButton]
+        view.backgroundColor = .systemGray6
+
+        view.addSubview(titleTextField)
+        view.addSubview(imageView)
+    }
+
+    func setConstraints() {
+        NSLayoutConstraint.activate([
+            titleTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            titleTextField.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: -10),
+
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: view.frame.width),
+            imageView.heightAnchor.constraint(equalToConstant: 600)
+        ])
+    }
 
     @objc func saveButtonDidTap(_ sender: UIButton!) {
 
@@ -47,10 +86,11 @@ class NoteWithPhotoViewController: UIViewController {
 
                 guard let title = titleTextField.text, let content = inputName else { return }
 
+                let image = imageView.image!
+
                 if note == nil {
                     let creationDate = "\(NSDate.now)"
                     let fileName = UUID().uuidString
-                    print(fileName)
                     note = Note(type: noteType.noteWithPhoto.rawValue, title: title, content: content, fileName: fileName, creationDate: creationDate)
                     mockData.add(note: note!)
                 }
@@ -59,6 +99,8 @@ class NoteWithPhotoViewController: UIViewController {
                     note!.content = content
                     mockData.edit(note: note!, index: index!)
                 }
+
+                try? noteService.save(image: image, fileName: (note!.fileName)!)
 
                 _ = navigationController?.popViewController(animated: true)
 
@@ -84,71 +126,7 @@ class NoteWithPhotoViewController: UIViewController {
         phPicker.delegate = self
         present(phPicker, animated: true)
     }
-
-    private var titleStackView = UIStackView()
-
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-        setConstraints()
-
-        if let note {
-            titleTextField.text = note.title
-//            noteTextView.text = note.content
-        }
-    }
-
-    func setupUI() {
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.rightBarButtonItems = [saveButton, addPhotoButton]
-        view.backgroundColor = .systemGray6
-
-        view.addSubview(imageView)
-    }
-
-    func setConstraints() {
-        titleStackView = UIStackView(
-            arrangedSubviews: [titleTextField]
-        )
-        titleStackView.axis = .horizontal
-        titleStackView.translatesAutoresizingMaskIntoConstraints = false
-
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(titleStackView)
-
-        NSLayoutConstraint.activate([
-            titleStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            titleStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            titleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-
-            imageView.leadingAnchor.constraint(equalTo: titleStackView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: titleStackView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: 10),
-            imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
-        ])
-    }
-
 }
-
-//extension NoteWithPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
-//            imageView.image = image
-//        }
-//        picker.dismiss(animated: true, completion: nil)
-//
-//    }
-//
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        picker.dismiss(animated: true, completion: nil)
-//    }
-//}
 
 extension NoteWithPhotoViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
@@ -162,8 +140,6 @@ extension NoteWithPhotoViewController: PHPickerViewControllerDelegate {
                 } else if let image = reading as? UIImage {
                     DispatchQueue.main.async { [self] in
                         imageView.image = image
-                        let fileName = note?.fileName ?? "\(UUID().uuidString)"
-                        try? noteService.save(image: image, fileName: fileName)
                     }
                 }
             }

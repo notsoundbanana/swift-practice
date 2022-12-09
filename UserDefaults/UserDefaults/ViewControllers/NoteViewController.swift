@@ -16,7 +16,7 @@ class NoteViewController: UIViewController {
     private let titleTextField: UITextField = {
         let textField = UITextField.init(frame: .zero)
         textField.placeholder = "Title"
-        textField.font = UIFont.systemFont(ofSize: 18)
+        textField.font = UIFont.systemFont(ofSize: 25)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -39,8 +39,6 @@ class NoteViewController: UIViewController {
 
         _ = navigationController?.popViewController(animated: true)
     }
-
-    private var titleStackView = UIStackView()
 
     private let noteTextView: UITextView = {
         let textView = UITextView.init(frame: .zero)
@@ -66,26 +64,19 @@ class NoteViewController: UIViewController {
         navigationItem.rightBarButtonItem = saveButton
         view.backgroundColor = .systemGray6
 
+        view.addSubview(titleTextField)
         view.addSubview(noteTextView)
     }
 
     func setConstraints() {
-        titleStackView = UIStackView(
-            arrangedSubviews: [titleTextField]
-        )
-        titleStackView.axis = .horizontal
-        titleStackView.spacing = 10
-        titleStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(titleStackView)
-
         NSLayoutConstraint.activate([
-            titleStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            titleStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            titleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            titleTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
 
-            noteTextView.leadingAnchor.constraint(equalTo: titleStackView.leadingAnchor),
-            noteTextView.trailingAnchor.constraint(equalTo: titleStackView.trailingAnchor),
-            noteTextView.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: 10),
+            noteTextView.leadingAnchor.constraint(equalTo: titleTextField.leadingAnchor),
+            noteTextView.trailingAnchor.constraint(equalTo: titleTextField.trailingAnchor),
+            noteTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 10),
             noteTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }

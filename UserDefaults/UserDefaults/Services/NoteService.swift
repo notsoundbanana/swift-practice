@@ -46,6 +46,18 @@ class NoteService {
         fileManager.createFile(atPath: path, contents: data)
     }
 
+    func getPhoto(fileName: String) throws -> UIImage {
+        let path = documentsDirectory.appending(path: "\(fileName).\(imageExtension)").path()
+        guard fileManager.fileExists(atPath: path) else {
+            throw NoteServiceError.fileNotFound
+        }
+
+        guard let data = fileManager.contents(atPath: path) else {
+            throw NoteServiceError.couldNotReadFile
+        }
+        return  UIImage(data: data)!
+    }
+
     private func encode(string: String) -> String? {
         string.addingPercentEncoding(
             withAllowedCharacters: .init(charactersIn: " ()")
