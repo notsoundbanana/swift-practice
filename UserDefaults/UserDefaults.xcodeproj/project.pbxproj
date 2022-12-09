@@ -16,6 +16,7 @@
 		FF9966DC29355FCB00BD79C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9966DB29355FCB00BD79C6 /* Assets.xcassets */; };
 		FF9966DF29355FCB00BD79C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9966DD29355FCB00BD79C6 /* LaunchScreen.storyboard */; };
 		FFA610E7293A9298003AF0E1 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA610E6293A9298003AF0E1 /* MockData.swift */; };
+		FFA70CBA2943AABD004AC296 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA70CB92943AABD004AC296 /* NoteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FF9966DE29355FCB00BD79C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF9966E029355FCB00BD79C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFA610E6293A9298003AF0E1 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		FFA70CB92943AABD004AC296 /* NoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				FFA610E6293A9298003AF0E1 /* MockData.swift */,
+				FFA70CB92943AABD004AC296 /* NoteService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				FF06EAE82935F970002B3996 /* Note.swift in Sources */,
 				FFA610E7293A9298003AF0E1 /* MockData.swift in Sources */,
 				FF150D0D2942837300BA8BBE /* NoteWithPhotoViewController.swift in Sources */,
+				FFA70CBA2943AABD004AC296 /* NoteService.swift in Sources */,
 				FF9966D729355FCA00BD79C6 /* ViewController.swift in Sources */,
 				FF9966D329355FCA00BD79C6 /* AppDelegate.swift in Sources */,
 				FF06EAEA2935F9C4002B3996 /* NoteViewController.swift in Sources */,

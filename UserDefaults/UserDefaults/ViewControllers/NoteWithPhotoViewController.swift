@@ -7,10 +7,12 @@
 
 
 import UIKit
+import PhotosUI
 
 class NoteWithPhotoViewController: UIViewController {
 
     private let mockData = MockData()
+    private let noteService = NoteService()
     public var note: Note?
     public var index: Int?
 
@@ -47,7 +49,9 @@ class NoteWithPhotoViewController: UIViewController {
 
                 if note == nil {
                     let creationDate = "\(NSDate.now)"
-                    note = Note(type: noteType.noteWithPhoto.rawValue, title: title, content: content, creationDate: creationDate)
+                    let fileName = UUID().uuidString
+                    print(fileName)
+                    note = Note(type: noteType.noteWithPhoto.rawValue, title: title, content: content, fileName: fileName, creationDate: creationDate)
                     mockData.add(note: note!)
                 }
                 else {
@@ -73,11 +77,12 @@ class NoteWithPhotoViewController: UIViewController {
     }
 
     @objc func addPhotoButtonDidTap(_ sender: UIButton!) {
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        let phPicker = PHPickerViewController(configuration: configuration)
+        phPicker.delegate = self
+        present(phPicker, animated: true)
     }
 
     private var titleStackView = UIStackView()
@@ -130,18 +135,40 @@ class NoteWithPhotoViewController: UIViewController {
 
 }
 
-extension NoteWithPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//extension NoteWithPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+//            imageView.image = image
+//        }
+//        picker.dismiss(animated: true, completion: nil)
+//
+//    }
+//
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        picker.dismiss(animated: true, completion: nil)
+//    }
+//}
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
-            imageView.image = image
+extension NoteWithPhotoViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+
+        results.forEach { result in
+            print("Asset identifier: \(result.assetIdentifier ?? "none")")
+            result.itemProvider.loadObject(ofClass: UIImage.self) { [self] reading, error in
+                if let error {
+                    print("Got error loading image: \(error)")
+                } else if let image = reading as? UIImage {
+                    DispatchQueue.main.async { [self] in
+                        imageView.image = image
+                        let fileName = note?.fileName ?? "\(UUID().uuidString)"
+                        try? noteService.save(image: image, fileName: fileName)
+                    }
+                }
+            }
         }
-        picker.dismiss(animated: true, completion: nil)
-
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
     }
 }
+
 
