@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             noteVC.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(noteVC, animated: true)
         }
-        if (type == noteType.noteWithPhoto.rawValue) {
+        else if (type == noteType.noteWithPhoto.rawValue) {
             let noteVC = NoteWithPhotoViewController()
             noteVC.note = allNotes[indexPath.row]
             noteVC.index = indexPath.row
@@ -126,7 +126,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "text")
         cell.textLabel?.text = allNotes[indexPath.row].title
-        cell.detailTextLabel?.text = allNotes[indexPath.row].creationDate
+
+        if (allNotes[indexPath.row].type == noteType.noteWithText.rawValue) {
+            cell.detailTextLabel?.text = allNotes[indexPath.row].creationDate
+        }
+        else if (allNotes[indexPath.row].type == noteType.noteWithPhoto.rawValue) {
+            cell.detailTextLabel?.text = allNotes[indexPath.row].content
+        }
+
         return cell
     }
 }
