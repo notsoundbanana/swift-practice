@@ -26,7 +26,33 @@ class NoteWithPhotoViewController: UIViewController {
     private let addPhotoButton = UIBarButtonItem.init(title: "Add photo", style: .plain, target: Any?.self, action: #selector(addPhotoButtonDidTap))
 
     @objc func saveButtonDidTap(_ sender: UIButton!) {
-        print(3263456)
+
+        if imageView.image != nil {
+
+            let alertController = UIAlertController(title: "New Note", message: "Name the image", preferredStyle: .alert)
+
+            alertController.addTextField { (textField) in
+                textField.placeholder = "Name"
+            }
+
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+
+                let inputName = alertController.textFields![0].text
+
+                print(inputName)
+
+            }
+
+            alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
+
+            present(alertController, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "Add photo", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     @objc func addPhotoButtonDidTap(_ sender: UIButton!) {
@@ -41,7 +67,6 @@ class NoteWithPhotoViewController: UIViewController {
 
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
         return imageView
     }()
 

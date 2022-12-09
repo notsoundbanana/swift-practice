@@ -7,7 +7,13 @@
 
 import UIKit
 
-struct Note: Codable{
+enum noteType: String{
+    case noteWithText = "noteWithText"
+    case noteWithPhoto = "noteWithPhoto"
+}
+
+struct Note: Codable {
+    var type: String
     var title: String
     var content: String
     let creationDate: String

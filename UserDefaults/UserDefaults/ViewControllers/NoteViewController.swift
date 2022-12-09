@@ -28,7 +28,7 @@ class NoteViewController: UIViewController {
 
         if note == nil {
             let creationDate = "\(NSDate.now)"
-            note = Note(title: title, content: content, creationDate: creationDate)
+            note = Note(type: noteType.noteWithText.rawValue, title: title, content: content, creationDate: creationDate)
             mockData.add(note: note!)
         }
         else {
