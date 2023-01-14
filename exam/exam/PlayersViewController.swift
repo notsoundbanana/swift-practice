@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PlayersTableViewController.swift
 //  exam
 //
 //  Created by Daniil Chemaev on 14.01.2023.
@@ -7,37 +7,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PlayersViewController: UIViewController {
 
     private let tableView: UITableView = .init(frame: .zero, style: .insetGrouped)
 
-    let networkManager = NetworkManager()
-
-    private struct TeamsList {
-        let name: String
-    }
-
-    private var teamsList: [Team] = []
+    var players: [Player] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setup()
         setupUI()
+        setup()
 
-        Task {
-            await networkManager.obtainData { (result) in
-            self.teamsList = result
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
     }
 
-    func setupUI(){
+    func setupUI() {
 
-        navigationItem.title = "Супер-менеджер 3000"
+        navigationItem.title = "Users"
 
         view.addSubview(tableView)
 
@@ -50,16 +36,9 @@ class ViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let playersVC = PlayersViewController()
-        playersVC.players = teamsList[indexPath.row].players
-        show(playersVC, sender: self)
-    }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension PlayersViewController: UITableViewDataSource, UITableViewDelegate {
 
     func setup() {
         tableView.dataSource = self
@@ -69,19 +48,22 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
 
+
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        teamsList.count
+        players.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "text")
 
-        let team = teamsList[indexPath.row]
+        let player = players[indexPath.row]
 
-        cell.textLabel?.text = team.name
+        cell.textLabel?.text = player.name
         return cell
     }
 }
+
+
 

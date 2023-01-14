@@ -16,6 +16,7 @@
 		FF7F58E92972BB5B003310B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF7F58E72972BB5B003310B8 /* LaunchScreen.storyboard */; };
 		FF7F58F12972BDFF003310B8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F58F02972BDFF003310B8 /* NetworkManager.swift */; };
 		FF7F58F32972BE34003310B8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F58F22972BE34003310B8 /* Response.swift */; };
+		FF7F58F52972CA1A003310B8 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F58F42972CA1A003310B8 /* PlayersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FF7F58EA2972BB5B003310B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF7F58F02972BDFF003310B8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FF7F58F22972BE34003310B8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		FF7F58F42972CA1A003310B8 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				FF7F58E22972BB5A003310B8 /* exam.xcdatamodeld */,
 				FF7F58F02972BDFF003310B8 /* NetworkManager.swift */,
 				FF7F58F22972BE34003310B8 /* Response.swift */,
+				FF7F58F42972CA1A003310B8 /* PlayersViewController.swift */,
 			);
 			path = exam;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF7F58E42972BB5A003310B8 /* exam.xcdatamodeld in Sources */,
+				FF7F58F52972CA1A003310B8 /* PlayersViewController.swift in Sources */,
 				FF7F58DE2972BB5A003310B8 /* ViewController.swift in Sources */,
 				FF7F58F12972BDFF003310B8 /* NetworkManager.swift in Sources */,
 				FF7F58DA2972BB5A003310B8 /* AppDelegate.swift in Sources */,
