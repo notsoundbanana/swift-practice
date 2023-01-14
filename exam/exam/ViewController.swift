@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  exam
@@ -81,6 +82,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let team = teamsList[indexPath.row]
 
         cell.textLabel?.text = team.name
+        if (team.players.count < 5) {
+            cell.detailTextLabel?.text = "Inactivate"
+        }
         return cell
     }
 }
