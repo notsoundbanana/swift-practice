@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     private let tableView: UITableView = .init(frame: .zero, style: .insetGrouped)
 
-    let networkManager = NetworkManager()
+    let networkManager = NetworkManager()  // Работа с сетью
 
     private struct TeamsList {
         let name: String
@@ -23,14 +23,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setup()
+        setup()  // Настраиваем таблицу, ее dataSource итд
         setupUI()
 
         Task {
-            await networkManager.obtainData { (result) in
-            self.teamsList = result
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+            if (teamsList.count == 0){
+                await networkManager.obtainData { (result) in
+                    self.teamsList = result
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }
@@ -56,6 +58,9 @@ class ViewController: UIViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let playersVC = PlayersViewController()
         playersVC.players = teamsList[indexPath.row].players
+        playersVC.teams = teamsList  // TO-DO ПЕРЕДЕЛАТЬ
+        playersVC.chosenTeam = indexPath.row
+//        print(teamsList[indexPath.row])
         show(playersVC, sender: self)
     }
 }

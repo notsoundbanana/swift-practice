@@ -12,6 +12,8 @@ class PlayersViewController: UIViewController {
     private let tableView: UITableView = .init(frame: .zero, style: .insetGrouped)
 
     var players: [Player] = []
+    var chosenTeam: Int = 0
+    var teams: [Team] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,14 @@ class PlayersViewController: UIViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let chooseTeamVC = ChooseTeamViewController()
-        navigationController?.present(chooseTeamVC, animated: true)
+        chooseTeamVC.teams = teams
+        chooseTeamVC.chosenTeam = chosenTeam
+        chooseTeamVC.chosenPlayer = indexPath.row
+//        print("")
+//        print(teams[chosenTeam])
+//        print(teams[chosenTeam].players[indexPath.row])
+        show(chooseTeamVC, sender: self)
+//        navigationController?.present(chooseTeamVC, animated: true)
     }
 }
 

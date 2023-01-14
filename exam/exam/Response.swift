@@ -14,7 +14,7 @@ struct Response: Codable {
 struct Team: Codable {
     let id: String
     let name: String
-    let players: [Player]
+    var players: [Player]
 }
 struct Player: Codable {
     let id: String

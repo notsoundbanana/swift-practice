@@ -33,7 +33,6 @@ class NetworkManager {
                 let (data, _ ) = try await session.data(from: url)
                 let parseData = try decoder.decode([Team].self, from: data)
                 result = parseData
-                print(result)
             } catch {
                 print(error)
             }
