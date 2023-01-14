@@ -22,7 +22,7 @@ class NoteService {
     init() {
         fileManager = .default
 
-        guard let documentsDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else {
+        guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
             fatalError("Could not load documents directory")
         }
         self.documentsDirectory = documentsDirectory
