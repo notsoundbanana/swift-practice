@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         let name: String
     }
 
-    private var teamsList: [TeamsList] = []
+    private var teamsList: [Team] = []
 
 
     override func viewDidLoad() {
@@ -30,26 +30,12 @@ class ViewController: UIViewController {
         setup()
         setupUI()
 
-        Task{
-            await networkManager.obtainPosts { [self] (result) in
-
-                switch result {
-                case .success(let response):
-                    teamsList = response.teams.map { team in
-                        TeamsList(name: "\(team.name)")
-                    }
-
-                    self.response = response
-
-                    self.dataSource = teamsList
-
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                case .failure(let error):
-                    print("Error: \(String(describing: error))")
+        Task {
+            await networkManager.obtainData { (result) in
+            self.teamsList = result
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
-
             }
         }
     }
@@ -84,15 +70,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataSource.count
+        teamsList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "text")
 
-        let user = dataSource[indexPath.row]
+        let team = teamsList[indexPath.row]
 
-        cell.textLabel?.text = "123"
+        cell.textLabel?.text = team.name
         return cell
     }
 }

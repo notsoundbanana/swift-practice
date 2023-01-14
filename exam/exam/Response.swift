@@ -8,18 +8,16 @@
 import Foundation
 
 struct Response: Codable {
-
-    struct Team: Codable {
-        let id: String
-        let name: String
-        let players: [Player]
-
-        struct Player: Codable {
-            let id: String
-            let name: String
-        }
-    }
-
     var teams: [Team]
+}
+
+struct Team: Codable {
+    let id: String
+    let name: String
+    let players: [Player]
+}
+struct Player: Codable {
+    let id: String
+    let name: String
 }
 

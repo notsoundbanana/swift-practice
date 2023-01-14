@@ -12,39 +12,30 @@ enum ObtainPostsResult {
     case failure(error: Error)
 }
 
+
 @MainActor
 class NetworkManager {
+    
+    let sessionConfiguration = URLSessionConfiguration.default
+        let url = "https://raw.githubusercontent.com/AZigangaraev/Exam2022-1/main/var2.json"
+        let session = URLSession.shared
+        let decoder = JSONDecoder()
 
-    let session = URLSession.shared
-    let decoder = JSONDecoder()
+        @MainActor
+        func obtainData(complition: @escaping ([Team]) -> Void) async {
+            guard let url = URL(string: self.url) else { return }
 
-    func obtainPosts(completion: @escaping (ObtainPostsResult) -> Void) async {
-
-        var result: ObtainPostsResult
-
-        defer {  // Обработка результата в конце
-            DispatchQueue.main.async {
-                completion(result)
+            var result: [Team] = []
+            defer {
+                complition(result)
+            }
+            do {
+                let (data, _ ) = try await session.data(from: url)
+                let parseData = try decoder.decode([Team].self, from: data)
+                result = parseData
+                print(result)
+            } catch {
+                print(error)
             }
         }
-
-        guard let url = URL(string: "https://raw.githubusercontent.com/AZigangaraev/Exam2022-1/main/var2.json") else {
-            result = .failure(error: Error.self as! Error)
-            return
-        }
-
-        let urlRequest = URLRequest(url: url)
-        do {
-            let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let response = try decoder.decode(Response.self, from: data)
-            print(response)
-            result = .success(response: response)
-        } catch {
-            result = .failure(error: error)
-        }
-
-        completion(result)
     }
-}
-
