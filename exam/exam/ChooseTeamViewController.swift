@@ -1,5 +1,5 @@
 //
-//  PlayersTableViewController.swift
+//  ChooseGroupViewController.swift
 //  exam
 //
 //  Created by Daniil Chemaev on 14.01.2023.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class PlayersViewController: UIViewController {
+class ChooseTeamViewController: UIViewController {
 
     private let tableView: UITableView = .init(frame: .zero, style: .insetGrouped)
 
-    var players: [Player] = []
+    var teams: [Team] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +36,9 @@ class PlayersViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let chooseTeamVC = ChooseTeamViewController()
-        navigationController?.present(chooseTeamVC, animated: true)
-    }
 }
 
-extension PlayersViewController: UITableViewDataSource, UITableViewDelegate {
+extension ChooseTeamViewController: UITableViewDataSource, UITableViewDelegate {
 
     func setup() {
         tableView.dataSource = self
@@ -58,18 +52,19 @@ extension PlayersViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        players.count
+        10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "text")
 
-        let player = players[indexPath.row]
+//        let player = players[indexPath.row]
 
-        cell.textLabel?.text = player.name
+//        cell.textLabel?.text = player.name
         return cell
     }
 }
+
 
 
 

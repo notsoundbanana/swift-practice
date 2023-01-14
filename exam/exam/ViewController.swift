@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         let name: String
     }
 
-    private var teamsList: [Team] = []
+    var teamsList: [Team] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
