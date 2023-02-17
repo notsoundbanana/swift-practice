@@ -10,5 +10,5 @@ import Foundation
 protocol CatalogService {
 
     func obtainData() throws -> [Product]
-    
+
 }

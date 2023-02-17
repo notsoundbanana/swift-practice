@@ -22,6 +22,8 @@
 		FF0E7190299ED80E008F5B52 /* CatalogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0E718F299ED80E008F5B52 /* CatalogPresenter.swift */; };
 		FFA73DFC299FD3690026E1AA /* CatalogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA73DFB299FD3690026E1AA /* CatalogCoordinator.swift */; };
 		FFA73DFE299FD9790026E1AA /* CatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA73DFD299FD9790026E1AA /* CatalogService.swift */; };
+		FFA73E0029A0128E0026E1AA /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA73DFF29A0128E0026E1AA /* ProductViewController.swift */; };
+		FFA73E0229A01C950026E1AA /* ProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA73E0129A01C950026E1AA /* ProductPresenter.swift */; };
 		FFBD53E9299FBD0700B078D5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD53E8299FBD0700B078D5 /* Product.swift */; };
 		FFBD53EB299FBDAC00B078D5 /* MockCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD53EA299FBDAC00B078D5 /* MockCatalogService.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		FF0E718F299ED80E008F5B52 /* CatalogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPresenter.swift; sourceTree = "<group>"; };
 		FFA73DFB299FD3690026E1AA /* CatalogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCoordinator.swift; sourceTree = "<group>"; };
 		FFA73DFD299FD9790026E1AA /* CatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogService.swift; sourceTree = "<group>"; };
+		FFA73DFF29A0128E0026E1AA /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		FFA73E0129A01C950026E1AA /* ProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPresenter.swift; sourceTree = "<group>"; };
 		FFBD53E8299FBD0700B078D5 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		FFBD53EA299FBDAC00B078D5 /* MockCatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCatalogService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +132,7 @@
 				AE62A6F22997D48800276B3A /* CatalogViewController.swift */,
 				FF0E718F299ED80E008F5B52 /* CatalogPresenter.swift */,
 				FFA73DFB299FD3690026E1AA /* CatalogCoordinator.swift */,
+				FFA73E0329A01CA10026E1AA /* Product */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -138,6 +143,15 @@
 				AE62A6F42997D4F000276B3A /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		FFA73E0329A01CA10026E1AA /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				FFA73DFF29A0128E0026E1AA /* ProductViewController.swift */,
+				FFA73E0129A01C950026E1AA /* ProductPresenter.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 		FFBD53E7299FBCF400B078D5 /* Models */ = {
@@ -222,12 +236,14 @@
 				AE62A6F32997D48800276B3A /* CatalogViewController.swift in Sources */,
 				AE62A6ED2997CB8C00276B3A /* LoginPresenter.swift in Sources */,
 				AE62A6E52997C51800276B3A /* AppCoordinator.swift in Sources */,
+				FFA73E0029A0128E0026E1AA /* ProductViewController.swift in Sources */,
 				AE62A6EF2997D43200276B3A /* MainTabBarCoordinator.swift in Sources */,
 				AE62A6D02997C44A00276B3A /* AppDelegate.swift in Sources */,
 				FFA73DFE299FD9790026E1AA /* CatalogService.swift in Sources */,
 				FFBD53EB299FBDAC00B078D5 /* MockCatalogService.swift in Sources */,
 				FFBD53E9299FBD0700B078D5 /* Product.swift in Sources */,
 				AE62A6D22997C44A00276B3A /* SceneDelegate.swift in Sources */,
+				FFA73E0229A01C950026E1AA /* ProductPresenter.swift in Sources */,
 				AE62A6F52997D4F000276B3A /* ProfileViewController.swift in Sources */,
 				FF0E7190299ED80E008F5B52 /* CatalogPresenter.swift in Sources */,
 				AE62A6EB2997CB8200276B3A /* LoginViewController.swift in Sources */,

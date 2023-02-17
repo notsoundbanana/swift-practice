@@ -10,7 +10,7 @@ import UIKit
 class CatalogViewController: UIViewController {
 
     var presenter: CatalogPresenter!
-    var source: [Product]!
+    var products: [Product]!
 
     private let catalogTableView: UITableView = {
         let tableView = UITableView()
@@ -20,7 +20,6 @@ class CatalogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.loadData()
-        source = presenter.products
 
         setupUI()
         setConstraints()
@@ -46,6 +45,11 @@ class CatalogViewController: UIViewController {
             ])
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.openProduct(at: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
     func showError(_ error: Error) {
         let alertController = UIAlertController(title: "OOOPS", message: "Something went wrong: \(error)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -63,12 +67,12 @@ extension CatalogViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        source.count
+        products.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "text")
-        cell.textLabel?.text = source[indexPath.row].name
+        cell.textLabel?.text = products[indexPath.row].name
         return cell
     }
 }

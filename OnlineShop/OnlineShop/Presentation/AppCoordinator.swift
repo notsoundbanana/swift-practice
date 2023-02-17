@@ -22,14 +22,14 @@ class AppCoordinator {
         authorizationService.isAuthorized
             .receive(on: DispatchQueue.main)
             .sink { [weak self] authorized in
-                guard let self else { return }
+            guard let self else { return }
 
-                if authorized {
-                    self.showAppContent()
-                } else {
-                    self.showAuthorization()
-                }
+            if authorized {
+                self.showAppContent()
+            } else {
+                self.showAuthorization()
             }
+        }
             .store(in: &cancellables)
     }
 
