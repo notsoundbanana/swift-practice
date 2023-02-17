@@ -17,24 +17,24 @@ enum ObtainPostsResult {
 class NetworkManager {
     
     let sessionConfiguration = URLSessionConfiguration.default
-        let url = "https://raw.githubusercontent.com/AZigangaraev/Exam2022-1/main/var2.json"
-        let session = URLSession.shared
-        let decoder = JSONDecoder()
+    let url = "https://raw.githubusercontent.com/AZigangaraev/Exam2022-1/main/var2.json"
+    let session = URLSession.shared
+    let decoder = JSONDecoder()
 
-        @MainActor
-        func obtainData(complition: @escaping ([Team]) -> Void) async {
-            guard let url = URL(string: self.url) else { return }
+    @MainActor
+    func obtainData(complition: @escaping ([Team]) -> Void) async {
+        guard let url = URL(string: self.url) else { return }
 
-            var result: [Team] = []
-            defer {
-                complition(result)
-            }
-            do {
-                let (data, _ ) = try await session.data(from: url)
-                let parseData = try decoder.decode([Team].self, from: data)
-                result = parseData
-            } catch {
-                print(error)
-            }
+        var result: [Team] = []
+        defer {
+            complition(result)
+        }
+        do {
+            let (data, _ ) = try await session.data(from: url)
+            let parseData = try decoder.decode([Team].self, from: data)
+            result = parseData
+        } catch {
+            print(error)
         }
     }
+}

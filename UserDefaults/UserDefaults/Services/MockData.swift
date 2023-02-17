@@ -29,7 +29,6 @@ class MockData {
         else {
             let jsonData = try! encoder.encode([note])
             userDefaults.set(jsonData, forKey: UserDefaultKeys.notes)
-
         }
     }
 
