@@ -46,7 +46,7 @@ class CatalogViewController: UIViewController {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.openProduct(at: indexPath.row)
+        CatalogCoordinator.shared.showProductViewController(product: products![indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

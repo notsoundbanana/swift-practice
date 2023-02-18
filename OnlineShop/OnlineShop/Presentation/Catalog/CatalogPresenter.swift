@@ -23,8 +23,4 @@ class CatalogPresenter {
             view?.showError(error)
         }
     }
-
-    func openProduct(at index: Int) {
-        CatalogCoordinator.shared.showProductViewController(product: products![index])
-    }
 }
