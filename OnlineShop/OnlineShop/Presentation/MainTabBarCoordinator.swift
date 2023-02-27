@@ -9,6 +9,7 @@ import UIKit
 
 class MainTabBarCoordinator {
     weak var tabBarController: UITabBarController?
+    var services: ServiceLocator!
 
     func start() -> UIViewController {
         let tabBarController = UITabBarController()
@@ -28,6 +29,8 @@ class MainTabBarCoordinator {
 
     private func profile() -> UIViewController {
         let controller: ProfileViewController = storyboard.instantiateViewController(identifier: "ProfileViewController")
+        let authorizationService: AuthorizationService = services.resolve()
+        controller.authorizationService = authorizationService
         controller.tabBarItem = .init(
             title: "Profile",
             image: .init(systemName: "person.circle"),

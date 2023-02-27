@@ -8,7 +8,14 @@
 import UIKit
 
 @MainActor
-class LoginViewController: UIViewController {
+protocol LoginView: AnyObject {
+    func showLoader()
+    func hideLoader()
+    func show(error: Error)
+}
+
+@MainActor
+class LoginViewController: UIViewController, LoginView {
     @IBOutlet private var loginField: UITextField!
     @IBOutlet private var passwordField: UITextField!
     @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
@@ -38,8 +45,10 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction private func login() {
-        guard let login = loginField.text, let password = passwordField.text else { return }
+        Task {
+            guard let login = loginField.text, let password = passwordField.text else { return }
 
-        presenter.logIn(login: login, password: password)
+            await presenter.logIn(login: login, password: password)
+        }
     }
 }

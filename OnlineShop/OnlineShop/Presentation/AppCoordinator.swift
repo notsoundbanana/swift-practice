@@ -11,10 +11,11 @@ import Combine
 @MainActor
 class AppCoordinator {
     weak var window: UIWindow?
+    var services: ServiceLocator!
     static let shared: AppCoordinator = .init()
 
-    var authorizationService: AuthorizationService
-        = MockAuthorizationService.shared
+    lazy var authorizationService: AuthorizationService
+        = services.resolve()
 
     var cancellables: Set<AnyCancellable> = []
 
@@ -22,29 +23,27 @@ class AppCoordinator {
         authorizationService.isAuthorized
             .receive(on: DispatchQueue.main)
             .sink { [weak self] authorized in
-            guard let self else { return }
+                guard let self else { return }
 
-            if authorized {
-                self.showAppContent()
-            } else {
-                self.showAuthorization()
+                if authorized {
+                    self.showAppContent()
+                } else {
+                    self.showAuthorization()
+                }
             }
-        }
             .store(in: &cancellables)
     }
 
-    private let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
     func showAuthorization() {
-        let controller: LoginViewController = storyboard.instantiateViewController(identifier: "LoginViewController")
-        let presenter = LoginPresenter()
-        controller.presenter = presenter
-        presenter.view = controller
+        let signInCoordinator = SignInCoordinator()
+        signInCoordinator.services = services
+        let controller = signInCoordinator.start()
         window?.rootViewController = controller
     }
 
     func showAppContent() {
         let tabBarCoordinator = MainTabBarCoordinator()
+        tabBarCoordinator.services = services
         window?.rootViewController = tabBarCoordinator.start()
     }
 }

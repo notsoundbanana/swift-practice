@@ -15,6 +15,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: scene)
         let coordinator: AppCoordinator = .shared
+
+        #if TESTS
+        let configurator = MockConfigurator()
+        #else
+        let configurator = RestConfigurator()
+        #endif
+        let services = configurator.configure()
+        coordinator.services = services
+
         coordinator.window = window
         coordinator.start()
         window.makeKeyAndVisible()
