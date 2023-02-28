@@ -24,11 +24,11 @@
 		FFA73DFE299FD9790026E1AA /* CatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA73DFD299FD9790026E1AA /* CatalogService.swift */; };
 		FFA73E0029A0128E0026E1AA /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA73DFF29A0128E0026E1AA /* ProductViewController.swift */; };
 		FFA73E0229A01C950026E1AA /* ProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA73E0129A01C950026E1AA /* ProductPresenter.swift */; };
+		FFBD4BA429ADDE9800DE0BDD /* MockConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD4BA329ADDE9800DE0BDD /* MockConfigurator.swift */; };
+		FFBD4BA629ADDEB000DE0BDD /* RestConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD4BA529ADDEB000DE0BDD /* RestConfigurator.swift */; };
+		FFBD4BA829ADDEC500DE0BDD /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD4BA729ADDEC500DE0BDD /* ServiceLocator.swift */; };
 		FFBD53E9299FBD0700B078D5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD53E8299FBD0700B078D5 /* Product.swift */; };
 		FFBD53EB299FBDAC00B078D5 /* MockCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD53EA299FBDAC00B078D5 /* MockCatalogService.swift */; };
-		FFBF392829AD197C000A591B /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF392529AD197C000A591B /* ServiceLocator.swift */; };
-		FFBF392929AD197C000A591B /* RestConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF392629AD197C000A591B /* RestConfigurator.swift */; };
-		FFBF392A29AD197C000A591B /* MockConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF392729AD197C000A591B /* MockConfigurator.swift */; };
 		FFBF392D29AD19EB000A591B /* ConfirmationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF392B29AD19EB000A591B /* ConfirmationPresenter.swift */; };
 		FFBF392E29AD19EB000A591B /* ConfirmationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF392C29AD19EB000A591B /* ConfirmationController.swift */; };
 		FFBF393029AD1A1C000A591B /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF392F29AD1A1C000A591B /* SignInCoordinator.swift */; };
@@ -76,11 +76,11 @@
 		FFA73DFD299FD9790026E1AA /* CatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogService.swift; sourceTree = "<group>"; };
 		FFA73DFF29A0128E0026E1AA /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		FFA73E0129A01C950026E1AA /* ProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPresenter.swift; sourceTree = "<group>"; };
+		FFBD4BA329ADDE9800DE0BDD /* MockConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConfigurator.swift; sourceTree = "<group>"; };
+		FFBD4BA529ADDEB000DE0BDD /* RestConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestConfigurator.swift; sourceTree = "<group>"; };
+		FFBD4BA729ADDEC500DE0BDD /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		FFBD53E8299FBD0700B078D5 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		FFBD53EA299FBDAC00B078D5 /* MockCatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCatalogService.swift; sourceTree = "<group>"; };
-		FFBF392529AD197C000A591B /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
-		FFBF392629AD197C000A591B /* RestConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestConfigurator.swift; sourceTree = "<group>"; };
-		FFBF392729AD197C000A591B /* MockConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockConfigurator.swift; sourceTree = "<group>"; };
 		FFBF392B29AD19EB000A591B /* ConfirmationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmationPresenter.swift; path = "../../../../../ITIS-IOS-Lab/203/OnlineShop/OnlineShop/Presentation/Login/ConfirmationPresenter.swift"; sourceTree = "<group>"; };
 		FFBF392C29AD19EB000A591B /* ConfirmationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmationController.swift; path = "../../../../../ITIS-IOS-Lab/203/OnlineShop/OnlineShop/Presentation/Login/ConfirmationController.swift"; sourceTree = "<group>"; };
 		FFBF392F29AD1A1C000A591B /* SignInCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInCoordinator.swift; path = "../../../../ITIS-IOS-Lab/203/OnlineShop/OnlineShop/Presentation/SignInCoordinator.swift"; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		AE62A6CE2997C44A00276B3A /* OnlineShop */ = {
 			isa = PBXGroup;
 			children = (
-				FFBF392429AD197C000A591B /* Dependencies */,
+				FFBD4BA229ADDE8600DE0BDD /* Dependencies */,
 				FFBD53E7299FBCF400B078D5 /* Models */,
 				AE62A6E62997C5CB00276B3A /* Services */,
 				AE62A6E32997C4FD00276B3A /* Presentation */,
@@ -219,23 +219,22 @@
 			path = Product;
 			sourceTree = "<group>";
 		};
+		FFBD4BA229ADDE8600DE0BDD /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				FFBD4BA329ADDE9800DE0BDD /* MockConfigurator.swift */,
+				FFBD4BA529ADDEB000DE0BDD /* RestConfigurator.swift */,
+				FFBD4BA729ADDEC500DE0BDD /* ServiceLocator.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
 		FFBD53E7299FBCF400B078D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				FFBD53E8299FBD0700B078D5 /* Product.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		FFBF392429AD197C000A591B /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				FFBF392729AD197C000A591B /* MockConfigurator.swift */,
-				FFBF392529AD197C000A591B /* ServiceLocator.swift */,
-				FFBF392629AD197C000A591B /* RestConfigurator.swift */,
-			);
-			name = Dependencies;
-			path = ../../../../.Trash/Dependencies;
 			sourceTree = "<group>";
 		};
 		FFD078C629ADDAC200BB4763 /* OnlineShopTests */ = {
@@ -402,12 +401,12 @@
 				FFBF393229AD1A60000A591B /* MockAuthorizationService.swift in Sources */,
 				AE62A6EF2997D43200276B3A /* MainTabBarCoordinator.swift in Sources */,
 				AE62A6D02997C44A00276B3A /* AppDelegate.swift in Sources */,
-				FFBF392929AD197C000A591B /* RestConfigurator.swift in Sources */,
 				FFA73DFE299FD9790026E1AA /* CatalogService.swift in Sources */,
 				FFBF393429AD1A69000A591B /* RestAuthorizationService.swift in Sources */,
 				FFBD53EB299FBDAC00B078D5 /* MockCatalogService.swift in Sources */,
 				FFBD53E9299FBD0700B078D5 /* Product.swift in Sources */,
 				AE62A6D22997C44A00276B3A /* SceneDelegate.swift in Sources */,
+				FFBD4BA829ADDEC500DE0BDD /* ServiceLocator.swift in Sources */,
 				FFBF392D29AD19EB000A591B /* ConfirmationPresenter.swift in Sources */,
 				FFA73E0229A01C950026E1AA /* ProductPresenter.swift in Sources */,
 				FFBF392E29AD19EB000A591B /* ConfirmationController.swift in Sources */,
@@ -415,9 +414,9 @@
 				FF0E7190299ED80E008F5B52 /* CatalogPresenter.swift in Sources */,
 				AE62A6EB2997CB8200276B3A /* LoginViewController.swift in Sources */,
 				FFA73DFC299FD3690026E1AA /* CatalogCoordinator.swift in Sources */,
+				FFBD4BA629ADDEB000DE0BDD /* RestConfigurator.swift in Sources */,
 				FFBF393029AD1A1C000A591B /* SignInCoordinator.swift in Sources */,
-				FFBF392A29AD197C000A591B /* MockConfigurator.swift in Sources */,
-				FFBF392829AD197C000A591B /* ServiceLocator.swift in Sources */,
+				FFBD4BA429ADDE9800DE0BDD /* MockConfigurator.swift in Sources */,
 				AE62A6E82997C60E00276B3A /* AuthorizationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
