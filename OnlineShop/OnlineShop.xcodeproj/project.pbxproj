@@ -34,7 +34,27 @@
 		FFBF393029AD1A1C000A591B /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF392F29AD1A1C000A591B /* SignInCoordinator.swift */; };
 		FFBF393229AD1A60000A591B /* MockAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF393129AD1A60000A591B /* MockAuthorizationService.swift */; };
 		FFBF393429AD1A69000A591B /* RestAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF393329AD1A69000A591B /* RestAuthorizationService.swift */; };
+		FFD078C829ADDAC200BB4763 /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD078C729ADDAC200BB4763 /* LoginPresenterTests.swift */; };
+		FFD078D029ADDACD00BB4763 /* MockLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD078CF29ADDACC00BB4763 /* MockLoginView.swift */; };
+		FFD078D829ADDB0000BB4763 /* OnlineShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD078D729ADDB0000BB4763 /* OnlineShopUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FFD078C929ADDAC200BB4763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE62A6C42997C44A00276B3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE62A6CB2997C44A00276B3A;
+			remoteInfo = OnlineShop;
+		};
+		FFD078DB29ADDB0000BB4763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE62A6C42997C44A00276B3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE62A6CB2997C44A00276B3A;
+			remoteInfo = OnlineShop;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AE62A6CC2997C44A00276B3A /* OnlineShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,10 +86,29 @@
 		FFBF392F29AD1A1C000A591B /* SignInCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInCoordinator.swift; path = "../../../../ITIS-IOS-Lab/203/OnlineShop/OnlineShop/Presentation/SignInCoordinator.swift"; sourceTree = "<group>"; };
 		FFBF393129AD1A60000A591B /* MockAuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockAuthorizationService.swift; path = "../../../../ITIS-IOS-Lab/203/OnlineShop/OnlineShop/Services/MockAuthorizationService.swift"; sourceTree = "<group>"; };
 		FFBF393329AD1A69000A591B /* RestAuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestAuthorizationService.swift; path = "../../../../ITIS-IOS-Lab/203/OnlineShop/OnlineShop/Services/RestAuthorizationService.swift"; sourceTree = "<group>"; };
+		FFD078C529ADDAC200BB4763 /* OnlineShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlineShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFD078C729ADDAC200BB4763 /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
+		FFD078CF29ADDACC00BB4763 /* MockLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLoginView.swift; sourceTree = "<group>"; };
+		FFD078D529ADDB0000BB4763 /* OnlineShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlineShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFD078D729ADDB0000BB4763 /* OnlineShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineShopUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AE62A6C92997C44A00276B3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD078C229ADDAC200BB4763 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD078D229ADDB0000BB4763 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -83,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				AE62A6CE2997C44A00276B3A /* OnlineShop */,
+				FFD078C629ADDAC200BB4763 /* OnlineShopTests */,
+				FFD078D629ADDB0000BB4763 /* OnlineShopUITests */,
 				AE62A6CD2997C44A00276B3A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				AE62A6CC2997C44A00276B3A /* OnlineShop.app */,
+				FFD078C529ADDAC200BB4763 /* OnlineShopTests.xctest */,
+				FFD078D529ADDB0000BB4763 /* OnlineShopUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +238,32 @@
 			path = ../../../../.Trash/Dependencies;
 			sourceTree = "<group>";
 		};
+		FFD078C629ADDAC200BB4763 /* OnlineShopTests */ = {
+			isa = PBXGroup;
+			children = (
+				FFD078CE29ADDACC00BB4763 /* Mocks */,
+				FFD078C729ADDAC200BB4763 /* LoginPresenterTests.swift */,
+			);
+			path = OnlineShopTests;
+			sourceTree = "<group>";
+		};
+		FFD078CE29ADDACC00BB4763 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FFD078CF29ADDACC00BB4763 /* MockLoginView.swift */,
+			);
+			name = Mocks;
+			path = "../../../ITIS-IOS-Lab/203/OnlineShop/OnlineShopTests/Mocks";
+			sourceTree = "<group>";
+		};
+		FFD078D629ADDB0000BB4763 /* OnlineShopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FFD078D729ADDB0000BB4763 /* OnlineShopUITests.swift */,
+			);
+			path = OnlineShopUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,6 +284,42 @@
 			productReference = AE62A6CC2997C44A00276B3A /* OnlineShop.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FFD078C429ADDAC200BB4763 /* OnlineShopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFD078CD29ADDAC200BB4763 /* Build configuration list for PBXNativeTarget "OnlineShopTests" */;
+			buildPhases = (
+				FFD078C129ADDAC200BB4763 /* Sources */,
+				FFD078C229ADDAC200BB4763 /* Frameworks */,
+				FFD078C329ADDAC200BB4763 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFD078CA29ADDAC200BB4763 /* PBXTargetDependency */,
+			);
+			name = OnlineShopTests;
+			productName = OnlineShopTests;
+			productReference = FFD078C529ADDAC200BB4763 /* OnlineShopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FFD078D429ADDB0000BB4763 /* OnlineShopUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFD078DD29ADDB0000BB4763 /* Build configuration list for PBXNativeTarget "OnlineShopUITests" */;
+			buildPhases = (
+				FFD078D129ADDB0000BB4763 /* Sources */,
+				FFD078D229ADDB0000BB4763 /* Frameworks */,
+				FFD078D329ADDB0000BB4763 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFD078DC29ADDB0000BB4763 /* PBXTargetDependency */,
+			);
+			name = OnlineShopUITests;
+			productName = OnlineShopUITests;
+			productReference = FFD078D529ADDB0000BB4763 /* OnlineShopUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,6 +332,14 @@
 				TargetAttributes = {
 					AE62A6CB2997C44A00276B3A = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					FFD078C429ADDAC200BB4763 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = AE62A6CB2997C44A00276B3A;
+					};
+					FFD078D429ADDB0000BB4763 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = AE62A6CB2997C44A00276B3A;
 					};
 				};
 			};
@@ -244,6 +357,8 @@
 			projectRoot = "";
 			targets = (
 				AE62A6CB2997C44A00276B3A /* OnlineShop */,
+				FFD078C429ADDAC200BB4763 /* OnlineShopTests */,
+				FFD078D429ADDB0000BB4763 /* OnlineShopUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -256,6 +371,20 @@
 				AE62A6DC2997C44B00276B3A /* LaunchScreen.storyboard in Resources */,
 				AE62A6D92997C44B00276B3A /* Assets.xcassets in Resources */,
 				AE62A6D72997C44A00276B3A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD078C329ADDAC200BB4763 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD078D329ADDB0000BB4763 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +422,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FFD078C129ADDAC200BB4763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFD078D029ADDACD00BB4763 /* MockLoginView.swift in Sources */,
+				FFD078C829ADDAC200BB4763 /* LoginPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD078D129ADDB0000BB4763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFD078D829ADDB0000BB4763 /* OnlineShopUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FFD078CA29ADDAC200BB4763 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE62A6CB2997C44A00276B3A /* OnlineShop */;
+			targetProxy = FFD078C929ADDAC200BB4763 /* PBXContainerItemProxy */;
+		};
+		FFD078DC29ADDB0000BB4763 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE62A6CB2997C44A00276B3A /* OnlineShop */;
+			targetProxy = FFD078DB29ADDB0000BB4763 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AE62A6D52997C44A00276B3A /* Main.storyboard */ = {
@@ -483,6 +642,76 @@
 			};
 			name = Release;
 		};
+		FFD078CB29ADDAC200BB4763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KTNM35TF3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.notsoundbanana.OnlineShopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OnlineShop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OnlineShop";
+			};
+			name = Debug;
+		};
+		FFD078CC29ADDAC200BB4763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KTNM35TF3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.notsoundbanana.OnlineShopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OnlineShop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OnlineShop";
+			};
+			name = Release;
+		};
+		FFD078DE29ADDB0000BB4763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KTNM35TF3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.notsoundbanana.OnlineShopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OnlineShop;
+			};
+			name = Debug;
+		};
+		FFD078DF29ADDB0000BB4763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KTNM35TF3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.notsoundbanana.OnlineShopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OnlineShop;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -500,6 +729,24 @@
 			buildConfigurations = (
 				AE62A6E12997C44B00276B3A /* Debug */,
 				AE62A6E22997C44B00276B3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFD078CD29ADDAC200BB4763 /* Build configuration list for PBXNativeTarget "OnlineShopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFD078CB29ADDAC200BB4763 /* Debug */,
+				FFD078CC29ADDAC200BB4763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFD078DD29ADDB0000BB4763 /* Build configuration list for PBXNativeTarget "OnlineShopUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFD078DE29ADDB0000BB4763 /* Debug */,
+				FFD078DF29ADDB0000BB4763 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
