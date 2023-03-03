@@ -45,4 +45,44 @@ final class OnlineShopUITests: XCTestCase {
 
         XCTAssertFalse(alert.exists)
     }
+
+    func testRightLoginPassword() {
+        let loginField = app.textFields["LoginTextField"].firstMatch
+        let passwordField = app.textFields["PasswordTextField"].firstMatch
+        let signInButton = app.buttons["LogInButton"].firstMatch
+
+        loginField.tap()
+        loginField.typeText("admin")
+        passwordField.tap()
+        passwordField.typeText("qwerty")
+        signInButton.tap()
+
+        let label = app.staticTexts["Catalog"]
+
+        _ = label.waitForExistence(timeout: 3)
+        XCTAssertTrue(label.exists)
+    }
+
+    func testLogOut() {
+        let loginField = app.textFields["LoginTextField"].firstMatch
+        let passwordField = app.textFields["PasswordTextField"].firstMatch
+        let signInButton = app.buttons["LogInButton"].firstMatch
+
+        loginField.tap()
+        loginField.typeText("admin")
+        passwordField.tap()
+        passwordField.typeText("qwerty")
+        signInButton.tap()
+
+
+        let app = XCUIApplication()
+        app.tabBars["Tab Bar"].buttons["Profile"].tap()
+        app.staticTexts["Sign out"].tap()
+
+
+        let button = app.buttons["LogInButton"].firstMatch
+
+        _ = button.waitForExistence(timeout: 3)
+        XCTAssertTrue(button.exists)
+    }
 }

@@ -45,4 +45,26 @@ final class LoginPresenterTests: XCTestCase {
         XCTAssertEqual(login, "123")
         XCTAssertEqual(password, "456")
     }
+
+    func testErrorIsCalled() async {
+        await presenter.logIn(login: "456", password: "456")
+
+        let result = await loginView.errorShown
+        XCTAssertEqual(result as? AuthorizationError, AuthorizationError.unauthorized)
+    }
+
+    func testHideLoaderIsCalled() async {
+        await presenter.logIn(login: "admin", password: "qwerty")
+
+        let result = await loginView.hideLoaderIsCalled
+        XCTAssertTrue(result)
+    }
+
+    func testConfirmSignInCalled() async {
+        await presenter.logIn(login: "admin", password: "qwerty")
+
+        let result = authorizationService.getIsAuthorizedValue()
+
+        XCTAssertTrue(result)
+    }
 }
