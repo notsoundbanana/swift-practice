@@ -9,34 +9,32 @@ import UIKit
 
 @MainActor
 public class FightCoordinator {
+    private let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
     weak var window: UIWindow?
     static let shared: FightCoordinator = .init()
 
-    private let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    var fightService: FightService = FightServiceImplementation.shared
 
-    private weak var navigationController: UINavigationController?
-    var service: FightService!
+    func start() {
+        fightService.startFight()
+        showFightViewController()
+    }
 
-
-    func start() -> UIViewController {
+    func showFightViewController() {
         let controller: FightViewController = storyboard.instantiateViewController(identifier: "FightViewController")
-        let presenter = FightPresenter(fightService: FightServiceImplementation.shared, view: controller)
+        let presenter = FightPresenter(fightService: fightService, view: controller)
 
         controller.presenter = presenter
 
-        let navigationController = UINavigationController(rootViewController: controller)
-        self.navigationController = navigationController
-
-        return navigationController
+        presenter.view = controller
+        presenter.showResult = showResultViewController
+        window?.rootViewController = controller
     }
 
     func showResultViewController(result: Result) {
         let controller: ResultViewController = storyboard.instantiateViewController(identifier: "ResultViewController")
         controller.result = result
-        navigationController?.pushViewController(controller, animated: true)
-    }
-
-    func restart() {
-        
+        window?.rootViewController = controller
     }
 }

@@ -21,5 +21,4 @@ protocol FightService {
     func basicAttack()
     /// Deals 7-15 damage. Enemy attacks back and reduces `myHealth` by 10.
     func magicAttack()
-    func getHealths() -> (enemyHealth: Int, myHealth: Int) 
 }

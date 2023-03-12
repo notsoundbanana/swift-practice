@@ -24,8 +24,8 @@ class FightServiceImplementation: FightService {
     }
 
     func startFight() {
-        print(_myHealth.value)
-        print(_enemyHealth.value)
+        _myHealth.value = 100
+        _enemyHealth.value = 100
     }
 
     func basicAttack() {
@@ -36,9 +36,5 @@ class FightServiceImplementation: FightService {
     func magicAttack() {
         _enemyHealth.value -= Int.random(in: 7...15)
         _myHealth.value -= 10
-    }
-
-    func getHealths() -> (enemyHealth: Int, myHealth: Int) {
-        return (enemyHealth: _enemyHealth.value, myHealth: _myHealth.value)
     }
 }

@@ -16,12 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: scene)
         let coordinator: FightCoordinator = .shared
-        let fightService = FightServiceImplementation()
-
-        window.rootViewController = coordinator.start()
-        window.makeKeyAndVisible()
+        coordinator.window = window
+        coordinator.start()
         self.window = window
-
-        coordinator.service = fightService
+        window.makeKeyAndVisible()
     }
 }

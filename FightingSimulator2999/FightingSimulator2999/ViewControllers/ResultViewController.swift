@@ -32,6 +32,6 @@ class ResultViewController: UIViewController {
 
     @IBAction
     private func restartTap() {
-        FightCoordinator.shared.restart()
+        FightCoordinator.shared.start()
     }
 }

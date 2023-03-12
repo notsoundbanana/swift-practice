@@ -7,13 +7,13 @@
 
 import UIKit
 
-@MainActor
+
 protocol FightView: AnyObject {
     func setMyHealth(value: Float)
     func setEnemyHealth(value: Float)
 }
 
-@MainActor
+
 class FightViewController: UIViewController, FightView {
     @IBOutlet private var myHealthView: UIProgressView!
     @IBOutlet private var enemyHealthView: UIProgressView!
