@@ -7,6 +7,7 @@
 
 import UIKit
 import FightingServices
+import FightingServiceImplementation
 
 @MainActor
 public class FightCoordinator {

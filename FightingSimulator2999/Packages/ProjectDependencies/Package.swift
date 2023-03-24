@@ -13,13 +13,15 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../Services")
+        .package(path: "../Services"),
+        .package(path: "../ServiceImplementation")
     ],
     targets: [
         .target(
             name: "ProjectDependencies",
             dependencies: [
-                .product(name: "FightingServices", package: "Services")
+                .product(name: "FightingServices", package: "Services"),
+                .product(name: "FightingServiceImplementation", package: "ServiceImplementation")
             ],
             path: "ProjectDependencies"
         ),

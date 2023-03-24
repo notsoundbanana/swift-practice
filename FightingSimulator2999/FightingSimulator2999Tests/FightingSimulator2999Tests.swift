@@ -6,11 +6,12 @@
 //
 
 import XCTest
+import FightingServices
 @testable import FightingSimulator2999
 
 final class FightingSimulator2999Tests: XCTestCase {
 
-    var fightService: MockFightService!
+    var fightService: FightService!
     var fightView: MockFightView!
     var presenter: FightPresenter!
 

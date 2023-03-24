@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import FightingServices
+
 @testable import FightingSimulator2999
 
 class MockFightService: FightService {
