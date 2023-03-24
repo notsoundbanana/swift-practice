@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FightingServices
 
 @MainActor
 public class FightCoordinator {

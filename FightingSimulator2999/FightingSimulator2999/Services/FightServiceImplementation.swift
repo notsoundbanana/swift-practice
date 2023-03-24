@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import FightingServices
 
 class FightServiceImplementation: FightService {
 
