@@ -18,6 +18,8 @@
 		AED7BC3029BC7AE700DCF749 /* FightingSimulator2999UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7BC2F29BC7AE700DCF749 /* FightingSimulator2999UITests.swift */; };
 		AED7BC4329BC7B5700DCF749 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7BC4229BC7B5700DCF749 /* ResultViewController.swift */; };
 		AED7BC4729BC84F100DCF749 /* MockFightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7BC4629BC84F100DCF749 /* MockFightService.swift */; };
+		FF3025BA29CEDC5900E94859 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3025B929CEDC5900E94859 /* ServiceLocator.swift */; };
+		FF3025BC29CEDCD500E94859 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3025BB29CEDCD500E94859 /* AppConfigurator.swift */; };
 		FFAF7C4629CE3B5600F46B9B /* ProjectDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = FFAF7C4529CE3B5600F46B9B /* ProjectDependencies */; };
 		FFC2C46B29BCBBA10059E91C /* MockFightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2C46A29BCBBA10059E91C /* MockFightView.swift */; };
 		FFC7032129BCA019007B7F92 /* FightPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC7032029BCA019007B7F92 /* FightPresenter.swift */; };
@@ -57,6 +59,8 @@
 		AED7BC2F29BC7AE700DCF749 /* FightingSimulator2999UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightingSimulator2999UITests.swift; sourceTree = "<group>"; };
 		AED7BC4229BC7B5700DCF749 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		AED7BC4629BC84F100DCF749 /* MockFightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFightService.swift; sourceTree = "<group>"; };
+		FF3025B929CEDC5900E94859 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		FF3025BB29CEDCD500E94859 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
 		FFAF7C4329CE3B2600F46B9B /* ProjectDependencies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ProjectDependencies; path = Packages/ProjectDependencies; sourceTree = "<group>"; };
 		FFC2C46A29BCBBA10059E91C /* MockFightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFightView.swift; sourceTree = "<group>"; };
 		FFC7032029BCA019007B7F92 /* FightPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightPresenter.swift; sourceTree = "<group>"; };
@@ -93,12 +97,12 @@
 		AED7BBFF29BC7AE600DCF749 = {
 			isa = PBXGroup;
 			children = (
-				FFAF7C4229CE3B2600F46B9B /* Packages */,
 				AED7BC0A29BC7AE600DCF749 /* FightingSimulator2999 */,
 				AED7BC2429BC7AE700DCF749 /* FightingSimulator2999Tests */,
 				AED7BC2E29BC7AE700DCF749 /* FightingSimulator2999UITests */,
-				AED7BC0929BC7AE600DCF749 /* Products */,
 				FFAF7C4429CE3B5600F46B9B /* Frameworks */,
+				FFAF7C4229CE3B2600F46B9B /* Packages */,
+				AED7BC0929BC7AE600DCF749 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,11 +119,12 @@
 		AED7BC0A29BC7AE600DCF749 /* FightingSimulator2999 */ = {
 			isa = PBXGroup;
 			children = (
+				FF3025B829CEDC4700E94859 /* Dependencies */,
+				FF3025B729CED9C700E94859 /* Coordinators */,
 				AED7BC1C29BC7AE700DCF749 /* Info.plist */,
 				FFC7031F29BCA007007B7F92 /* Presenters */,
 				AED7BC3F29BC7B0000DCF749 /* ViewControllers */,
 				FFC7032229BCA2E4007B7F92 /* App */,
-				FFC7032329BCA30A007B7F92 /* FightCoordinator.swift */,
 			);
 			path = FightingSimulator2999;
 			sourceTree = "<group>";
@@ -149,6 +154,23 @@
 				AED7BC4229BC7B5700DCF749 /* ResultViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FF3025B729CED9C700E94859 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				FFC7032329BCA30A007B7F92 /* FightCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		FF3025B829CEDC4700E94859 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				FF3025B929CEDC5900E94859 /* ServiceLocator.swift */,
+				FF3025BB29CEDCD500E94859 /* AppConfigurator.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		FFAF7C4229CE3B2600F46B9B /* Packages */ = {
@@ -324,8 +346,10 @@
 			files = (
 				AED7BC4329BC7B5700DCF749 /* ResultViewController.swift in Sources */,
 				FFC7032429BCA30A007B7F92 /* FightCoordinator.swift in Sources */,
+				FF3025BC29CEDCD500E94859 /* AppConfigurator.swift in Sources */,
 				AED7BC1029BC7AE600DCF749 /* FightViewController.swift in Sources */,
 				AED7BC0C29BC7AE600DCF749 /* AppDelegate.swift in Sources */,
+				FF3025BA29CEDC5900E94859 /* ServiceLocator.swift in Sources */,
 				AED7BC0E29BC7AE600DCF749 /* SceneDelegate.swift in Sources */,
 				AED7BC1629BC7AE600DCF749 /* FightingSimulator2999.xcdatamodeld in Sources */,
 				FFC7032129BCA019007B7F92 /* FightPresenter.swift in Sources */,

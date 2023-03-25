@@ -16,6 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: scene)
         let coordinator: FightCoordinator = .shared
+
+        let configurator = AppConfigurator()
+        let services = configurator.configure()
+        coordinator.services = services
+
         coordinator.window = window
         coordinator.start()
         self.window = window

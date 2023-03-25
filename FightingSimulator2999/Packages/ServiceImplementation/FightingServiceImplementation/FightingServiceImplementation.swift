@@ -3,7 +3,7 @@ import FightingServices
 
 public class FightServiceImplementation: FightService {
 
-    public static let shared: FightServiceImplementation = .init()
+    public init() { }
 
     var _myHealth: CurrentValueSubject<Int, Never> = .init(100)
     var _enemyHealth: CurrentValueSubject<Int, Never> = .init(100)

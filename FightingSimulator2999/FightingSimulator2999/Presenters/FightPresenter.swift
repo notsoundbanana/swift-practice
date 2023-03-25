@@ -11,7 +11,7 @@ import FightingServices
 
 class FightPresenter {
 
-    var fightService: FightService!
+    var fightService: FightService
     weak var view: FightView?
     var showResult: (Result) -> Void = { _ in }
     var cancellables: Set<AnyCancellable> = []
