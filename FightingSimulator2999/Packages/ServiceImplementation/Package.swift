@@ -15,9 +15,7 @@ let package = Package(
     targets: [
         .target(
             name: "FightingServiceImplementation",
-            dependencies: [
-                .product(name: "FightingServices", package: "Services")
-            ],
+            dependencies: [ .product(name: "FightingServices", package: "Services") ],
             path: "FightingServiceImplementation"
         ),
     ]

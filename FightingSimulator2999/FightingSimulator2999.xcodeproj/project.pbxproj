@@ -20,7 +20,7 @@
 		AED7BC4729BC84F100DCF749 /* MockFightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7BC4629BC84F100DCF749 /* MockFightService.swift */; };
 		FF3025BA29CEDC5900E94859 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3025B929CEDC5900E94859 /* ServiceLocator.swift */; };
 		FF3025BC29CEDCD500E94859 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3025BB29CEDCD500E94859 /* AppConfigurator.swift */; };
-		FFAF7C4629CE3B5600F46B9B /* ProjectDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = FFAF7C4529CE3B5600F46B9B /* ProjectDependencies */; };
+		FFB8A4BC29CF2959001FA3C7 /* ProjectDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = FFB8A4BB29CF2959001FA3C7 /* ProjectDependencies */; };
 		FFC2C46B29BCBBA10059E91C /* MockFightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2C46A29BCBBA10059E91C /* MockFightView.swift */; };
 		FFC7032129BCA019007B7F92 /* FightPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC7032029BCA019007B7F92 /* FightPresenter.swift */; };
 		FFC7032429BCA30A007B7F92 /* FightCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC7032329BCA30A007B7F92 /* FightCoordinator.swift */; };
@@ -65,7 +65,6 @@
 		FFC2C46A29BCBBA10059E91C /* MockFightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFightView.swift; sourceTree = "<group>"; };
 		FFC7032029BCA019007B7F92 /* FightPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightPresenter.swift; sourceTree = "<group>"; };
 		FFC7032329BCA30A007B7F92 /* FightCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightCoordinator.swift; sourceTree = "<group>"; };
-		FFEA6E8929CE4BEB009A2981 /* ProjectDependencies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ProjectDependencies; path = Packages/ProjectDependencies; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFAF7C4629CE3B5600F46B9B /* ProjectDependencies in Frameworks */,
+				FFB8A4BC29CF2959001FA3C7 /* ProjectDependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				FFAF7C4329CE3B2600F46B9B /* ProjectDependencies */,
-				FFEA6E8929CE4BEB009A2981 /* ProjectDependencies */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -227,7 +225,7 @@
 			);
 			name = FightingSimulator2999;
 			packageProductDependencies = (
-				FFAF7C4529CE3B5600F46B9B /* ProjectDependencies */,
+				FFB8A4BB29CF2959001FA3C7 /* ProjectDependencies */,
 			);
 			productName = FightingSimulator2999;
 			productReference = AED7BC0829BC7AE600DCF749 /* FightingSimulator2999.app */;
@@ -691,7 +689,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FFAF7C4529CE3B5600F46B9B /* ProjectDependencies */ = {
+		FFB8A4BB29CF2959001FA3C7 /* ProjectDependencies */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ProjectDependencies;
 		};

@@ -9,10 +9,7 @@ let package = Package(
     products: [
         .library(name: "FightingServices", targets: ["FightingServices"]),
     ],
-    dependencies: [
-    ],
     targets: [
         .target(name: "FightingServices", path: "FightingServices"),
-        .target(name: "PlayerServices", path: "PlayerServices")
     ]
 )

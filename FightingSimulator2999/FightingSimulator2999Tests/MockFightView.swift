@@ -5,7 +5,7 @@
 //  Created by Daniil Chemaev on 11.03.2023.
 //
 
-import UIKit
+import Foundation
 @testable import FightingSimulator2999
 
 
