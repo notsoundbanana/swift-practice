@@ -10,21 +10,17 @@ import SwiftUI
 struct TabBarView: View {
     let username: String
 
+    @Binding var showTabBarPage: Bool
+
     var body: some View {
         TabView {
             HomeView(username: username).tabItem {
                 Label("Home", systemImage: "house")
             }
 
-            ExitView(username: username).tabItem {
+            ExitView(username: username, showTabBarPage: $showTabBarPage).tabItem {
                 Label("Exit", systemImage: "person")
             }
         }
-    }
-}
-
-struct TabBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarView(username: "{Username}")
     }
 }

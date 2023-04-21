@@ -18,7 +18,7 @@ struct LoginView: View {
     @State var password: String = ""
     @State var showPassword: Bool = false
 
-    @State var showContent: Bool = false
+    @State var showTabBarPage: Bool = false
     @State var showFail: Bool = false
 
     @ObservedObject
@@ -53,6 +53,7 @@ struct LoginView: View {
                     }
                         .autocorrectionDisabled()
                         .keyboardType(.asciiCapable)
+                        .textInputAutocapitalization(.never)
                         .padding(10)
                         .overlay {
                         RoundedRectangle(cornerRadius: 10)
@@ -80,9 +81,13 @@ struct LoginView: View {
                         .padding()
                 }
             }
+                .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity
+            )
         }
-        .fullScreenCover(isPresented: $showContent) {
-            TabBarView(username: username)
+            .fullScreenCover(isPresented: $showTabBarPage) {
+            TabBarView(username: username, showTabBarPage: $showTabBarPage)
         }
             .alert("Incorrect login or password", isPresented: $showFail) {
             Button("Clear") {
@@ -100,7 +105,8 @@ struct LoginView: View {
 
     func authenticateUser(username: String, password: String) {
         if username == "admin" && password == "admin" {
-            showContent.toggle()
+            showTabBarPage.toggle()
+            self.password = ""
         } else {
             showFail.toggle()
         }

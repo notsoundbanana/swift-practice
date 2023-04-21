@@ -10,13 +10,13 @@ import SwiftUI
 struct ExitView: View {
     let username: String
 
-    @State var showLoginPage: Bool = false
+    @Binding var showTabBarPage: Bool
 
     var body: some View {
         VStack(alignment: .center, spacing: 15) {
             Text("Hello, \(username)")
             Button {
-                showLoginPage.toggle()
+                showTabBarPage.toggle()
             } label: {
                 Text("Exit")
                     .font(.title2)
@@ -28,9 +28,6 @@ struct ExitView: View {
                     .cornerRadius(20)
                     .padding(.horizontal)
             }
-        }
-            .fullScreenCover(isPresented: $showLoginPage) {
-            LoginView()
         }
     }
 }
